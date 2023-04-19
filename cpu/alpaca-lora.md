@@ -3,7 +3,7 @@
 
 
 The steps are as follows:
-
+```
 1  git clone https://github.com/antimatter15/alpaca.cpp
 
 2  cd alpaca.cpp
@@ -13,7 +13,7 @@ The steps are as follows:
 4 Download [ggml-alpaca-7b-q4.bin](https://huggingface.co/Sosaka/Alpaca-native-4bit-ggml/blob/main/ggml-alpaca-7b-q4.bin) and place it in the same folder as the chat executable in the file
 
 5 ./chat  
-
+```
 
 
 The video below is not sped up and running on an M1 MacBook Pro.
