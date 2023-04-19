@@ -23,6 +23,26 @@ The video below is not sped up and running on an M1 MacBook Pro.
 [![asciicast](screencast.gif)](https://asciinema.org/a/dfJ8QXZ4u978Ona59LPEldtKK)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://user-images.githubusercontent.com/80691681/233080312-7c8ccb39-2955-4cfe-acd0-b71b999524bc.mov
 
 Here is the text version of the Q&A
