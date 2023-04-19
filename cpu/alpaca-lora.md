@@ -1,4 +1,4 @@
-## How to run Alpaca.cpp on your own macbook?
+## How to run Alpaca.cpp on your own MacBook?
 
 
 
