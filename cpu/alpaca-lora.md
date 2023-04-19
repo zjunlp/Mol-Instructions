@@ -17,7 +17,7 @@ The steps are as follows:
 
 
 The video below is not sped up and running on an M1 MacBook Pro.
-https://user-images.githubusercontent.com/80691681/233084432-c60490da-4ac1-4312-9688-a44e3df009e8.gif
+[屏幕录制2023-04-19 20 50 40 (1)](https://user-images.githubusercontent.com/80691681/233084789-5a6c0541-3112-455b-b5d1-54e31503f7ac.gif)
 
 
 https://user-images.githubusercontent.com/80691681/233080312-7c8ccb39-2955-4cfe-acd0-b71b999524bc.mov
