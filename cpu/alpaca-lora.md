@@ -16,31 +16,10 @@ The steps are as follows:
 ```
 
 
-The video below is not sped up and running on an M1 MacBook Pro.
+The gif below is not sped up and running on an M1 MacBook Pro.
 
 
 ![Alt Text](1.gif)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Here is the text version of the Q&A
