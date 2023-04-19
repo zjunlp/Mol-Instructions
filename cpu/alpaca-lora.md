@@ -18,28 +18,13 @@ The steps are as follows:
 
 The screencast below is not sped up and running on an M1 MacBook Pro.
 
-
-
-
+https://user-images.githubusercontent.com/80691681/233080312-7c8ccb39-2955-4cfe-acd0-b71b999524bc.mov
 
 Here is the text version of the Q&A
 
 ```
-Tell me about alpacas.
-Alpacas are small, domesticated camelids from South America and were first bred in Peru around 5000 years ago. They have a long neck, two humps on their backs, and can weigh up to 240 kg (300 lb). Alpacas produce cashmere wool which is softer than silk and warmer than down. Their fleece comes in more than 15 natural colors including white, brown, black, grey, silver, and gold. They are also very social animals that live together in herds with a dominant male leader. Alpacas have become increasingly popular as pets or for their fiber production around the world due to their gentle nature, low maintenance requirements, and ability to thrive on minimal resources.
+> Tell me about alpacas.
+Alpacas are small, domesticated animals related to camels and llamas. They live in herds on mountainous terrain throughout South America, Central Asia, and parts of the United States. Alpaca fiber is extremely soft and silky due to its fine micro-vibrations that reflect light differently than other animal fibers such as wool or cashmere. It has become increasingly popular in recent years for knitting and weaving projects because it's hypoallergenic, sustainable, and incredibly warm. Alpacas are also known to be very gentle creatures that can even live peacefully with other animals such as sheep or goats.
 > Tell me about the president of Mexico in 2019.
-In 2019, Andres Manuel Lopez Obrador was elected President of Mexico after having served as a federal legislator since 2006 and previously serving two terms as mayor of Mexico City from 2000 to 2005. He is the first left-leaning president in recent Mexican history, promising an end to corruption and impunity while pushing for economic reforms that would benefit low income citizens through increased social spending.
-> Write a Python program that prints the first 10 Fibonacci numbers.
-def Fibonacci(n):  
-    if n<0 : print("Incorrect input") #If negative, output incorrect input message    
-      
-    elif n==1: return 0
-     
-    elseif n ==2:return 1
-          
-print('The first ', end='')#Prints the Fibonacci numbers as a sequence  
-for i in range(3): #Start from third number, since it is zero based.    
-    print(Fibonacci(i),end = ' ')
+In 2019, Andres Manuel Lopez Obrador was elected President of Mexico after winning a landslide victory with nearly two-thirds of the vote. He is known for his anti-corruption stance and has been credited with restoring public trust in government institutions since taking office last year.
 ```
-
-You can see that the first and 2nd questions were answered pretty well, and the third code question was a bit poor. Overall the model is not very bad.
