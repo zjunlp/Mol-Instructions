@@ -17,8 +17,7 @@ The steps are as follows:
 
 
 The video below is not sped up and running on an M1 MacBook Pro.
-[error](1.gif)
-[![asciicast](screencast.gif)](1.gif)
+
 
 [![asciicast](screencast.gif)](https://asciinema.org/a/dfJ8QXZ4u978Ona59LPEldtKK)
 
