@@ -19,8 +19,8 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 - adapter weights (huggingface link)
 - quantized model (huggingface link)
 
-### Instruction Data Release
-- molecular instruction data website?
+### Data Release
+- molecular instructions (website?)
 
 ## ⚙ Step-by-step guidelines
 
