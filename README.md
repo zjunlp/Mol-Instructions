@@ -22,7 +22,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 ### Data Release
 - molecular instructions (website?)
 
-## ⚙ Step-by-step guidelines
+## ⚙ Demo
 
 Gradio interface gif
 
