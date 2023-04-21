@@ -5,7 +5,7 @@
 
 ⚗️ Welcome to the MoLAMA project repository! MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬*human language* and 🔬*molecular language*, which can assist communities in conducting research in the field of molecular science.
 
-**The project is currently ongoing, with continuous enhancements being made to iteratively improve the model. **
+**The project is currently ongoing, with continuous enhancements being made to iteratively improve the model.**
 
 
 ## 💡 Overview
