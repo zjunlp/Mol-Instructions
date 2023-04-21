@@ -11,13 +11,16 @@
 ## 💡 Overview
 
 ### About
-This is the repository of MoLAMA, a general-purpose large language model for molecules. We performed low-rank adaptation on Molecule-English bilingual data based on the weights of LLaMA-7B and Alpaca-LoRA. The data contains a wide range of molecular data, including data related to molecular descriptions, chemical synthesis, and molecular property, among other molecular-related fields. 
+This is the repository of MoLAMA, a general-purpose large language model for molecules. We performed low-rank adaptation on Molecule-English bilingual data based on the weights of LLaMA-7B and Alpaca-LoRA. The instruction data contains a wide range of molecular data, including data related to molecular descriptions, chemical synthesis, and molecular property, among other molecular-related fields. 
 
 Our model demonstrates a stronger understanding of molecular knowledge and is continuously refined to incorporate more molecular information. Currently, MoLAMA is still in its initial stage of development, and there are many limitations and challenges that need to be addressed. While it may be difficult to achieve complete coverage, we welcome any suggestions or ideas you may have for MoLAMA.
 
 ### Model Release
-adapter weights (huggingface link)
-quantized model (huggingface link)
+- adapter weights (huggingface link)
+- quantized model (huggingface link)
+
+### Instruction Data Release
+- molecular instruction data website?
 
 ## ⚙ Step-by-step guidelines
 
