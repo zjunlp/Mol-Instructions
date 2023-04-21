@@ -57,7 +57,7 @@ After downloading the model weights and putting them in the right folder, please
 >> ./chat
 ```
 
-The screencast below is not sped up and running on an M1 Macbook Air:
+The screencast below is not sped up and running on an M1 Macbook Pro:
 
 cpp gif
 
