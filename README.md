@@ -8,8 +8,35 @@
 
 
 ### Model Release
-...
+huggingface link (7B)
 
 ## Demo
 
-You can run our model locally on your device. We provided a step-by-step guidelines in [`cpp`](cpp).
+gif
+
+You can execute our model natively on your local device. Here we included detailed guidelines to facilitate implementation.
+
+### Step 1
+Run the following command to compile the [`alpaca.cpp`](https://github.com/antimatter15/alpaca.cpp) project:
+
+```sh
+>> git clone https://github.com/antimatter15/alpaca.cpp
+>> cd alpaca.cpp
+
+>> make chat
+```
+
+### Step 2
+Download xxx.bin(model link) and place it in the same folder as the `chat` executable. The files should be organized in the following hierarchy:
+
+├── alpaca.cpp                  
+│   ├── chat                    
+│   ├── xxx.bin                 
+│   ├── ...
+
+### Step 3
+Then run
+```sh
+>> ./chat
+```
+
