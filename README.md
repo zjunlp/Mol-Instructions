@@ -3,7 +3,9 @@
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/cama/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/zjunlp/cama/blob/main/DATA_LICENSE)
 
-⚗️ Welcome to the MoLAMA project repository! MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬*human language* and 🔬*molecular language*, which can assist communities in conducting research in the field of molecular science.
+Welcome to the MoLAMA project repository! 
+
+MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬*human language* and 🔬*molecular language*. This capability can assist communities in conducting research in the field of molecular science.
 
 **The project is currently ongoing, with continuous enhancements being made to iteratively improve the model.**
 
