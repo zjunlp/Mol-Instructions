@@ -29,10 +29,12 @@ Run the following command to compile the [`alpaca.cpp`](https://github.com/antim
 ### Step 2
 Download xxx.bin(model link) and place it in the same folder as the `chat` executable. The files should be organized in the following hierarchy:
 
+```
 ├── alpaca.cpp                  
 │   ├── chat                    
 │   ├── xxx.bin                 
 │   ├── ...
+```
 
 ### Step 3
 Then run
