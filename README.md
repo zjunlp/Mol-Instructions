@@ -7,3 +7,9 @@
 ## Overview
 
 
+### Model Release
+...
+
+## Demo
+
+You can run our model locally on your device. We provided a step-by-step guidelines in [`cpp`](cpp).
