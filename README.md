@@ -37,7 +37,8 @@ Download xxx.bin(model link) and place it in the same folder as the `chat` execu
 ```
 
 ### Step 3
-Then run
+After downloading the model weights and putting them in the right folder, please run:
+
 ```sh
 >> ./chat
 ```
