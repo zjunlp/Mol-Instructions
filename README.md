@@ -1,18 +1,18 @@
-# molama
+ # 🦄️ MoLAMA
 
-⚗️ Welcome to the MoLAMA project repository! MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬human language and 🔬molecular language, which can assist communities in conducting research in the field of molecular science.
+⚗️ Welcome to the MoLAMA project repository! MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬*human language* and 🔬*molecular language*, which can assist communities in conducting research in the field of molecular science.
 
-🚨 **Usage and License Notices**: Please note that MoLAMA is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. Commercial use is strictly **prohibited**.
+**🚨 Usage and License Notices**: Please note that MoLAMA is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. Commercial use is strictly **prohibited**.
 
-## Overview
+## 📚 Overview
 
 
 ### Model Release
 huggingface link (7B)
 
-## Demo
+## 💻 Demo
 
-gif
+Gradio interface gif
 
 You can execute our model natively on your local device. Here we included detailed guidelines to facilitate implementation.
 
@@ -42,4 +42,8 @@ After downloading the model weights and putting them in the right folder, please
 ```sh
 >> ./chat
 ```
+
+The screencast below is not sped up and running on an M1 Macbook Air.
+
+cpp gif
 
