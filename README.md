@@ -26,7 +26,9 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 
 ## ⚙ Demo
 
-Gradio interface gif
+<p align="center">
+  <img alt="Demo" src=gradio_interface_gif.gif>
+</p>
 
 You can execute our model natively on your local device. Here we included detailed guidelines to facilitate implementation.
 
