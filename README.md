@@ -26,10 +26,6 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 
 ## ⚙ Demo
 
-<p align="center">
-  <img alt="Demo" src=gradio_interface_gif.gif style="width: 800px; height: 380px;"/>
-</p>
-
 ### Task descriptions
 
 - **Mol2Text**: text description generation based on the given molecule.
@@ -51,23 +47,23 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 - **Forward Reaction Prediction**: predict the outcome of a chemical reaction when given the reactants and reaction reagents.
 
 ```txt
-🧑🏻‍🔬: What product could potentially form from the reaction of the given reactants and reagents?
+🧑🏻‍🔬: What product could potentially form from the reaction of the given reactants and reagents? [O][=N+1][Branch1][C][O-1][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][Ring2].[C][C][=C][C][=C][C][=C][Ring1][=Branch1]
 
-🦄️: 
+🦄️: [N][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][C]
 ```
 
 - **Retrosynthesis**: deconstruct a target molecule into simpler precursor molecules.
 
 ```txt
-🧑🏻‍🔬: With the given product, suggest some likely reactants that were used in its synthesis.
+🧑🏻‍🔬: With the given product, suggest some likely reactants that were used in its synthesis. [C][S][=Branch1][C][=O][=Branch1][C][=O][N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
 
-🦄️: 
+🦄️: [C][S][=Branch1][C][=O][=Branch1][C][=O][Cl].[N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
 ```
 
 - **Reagent Prediction**: predict the most likely reagents that can be used to carry out a chemical reaction or transformation.
 
 ```txt
-🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used?
+🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used? 
 
 🦄️: 
 ```
@@ -75,11 +71,16 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 - **Property Prediction**: predict various properties of molecules.
 
 ```txt
-🧑🏻‍🔬: I would like to know the HOMO-LUMO gap of this molecule, can you provide it? 
+🧑🏻‍🔬: I would like to know the HOMO-LUMO gap of this molecule, can you provide it? [N][=C][O][C][C][Branch1][Ring2][C][C][#C][=C][Ring1][Branch2]
 
-🦄️: 
+🦄️: 0.2136
 ```
 
+### Example Demonstration
+
+<p align="center">
+  <img alt="Demo" src=gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
+</p>
 
 
 ## 🚀 Quick Start 
