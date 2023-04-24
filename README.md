@@ -30,6 +30,11 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
   <img alt="Demo" src=gradio_interface_gif.gif style="width: 800px; height: 380px;"/>
 </p>
 
+### Task descriptions
+
+
+## 🚀 Quick Start 
+
 You can execute our model natively on your local device. Here we included detailed guidelines to facilitate implementation.
 
 ### Step 1
