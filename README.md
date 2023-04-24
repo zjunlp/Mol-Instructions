@@ -28,7 +28,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 
 ### Task descriptions
 
-- **Mol2Text**: text description generation based on the given molecule.
+- **Mol2Text**: *text description generation based on the given molecule*.
 
 ```txt
 🧑🏻‍🔬: Provide a description of this molecule. [C][C][/C][=C][\C][/C][=C][\C][C@H1][Branch1][C][O][C@@H1][Branch1][P][/C][=C][/C][=C][/C][=C][\C][/C][=C][\C][C][C][=Branch1][C][=O][O-1][S][C][C@H1][Branch1][C][NH3+1][C][=Branch1][C][=O][N][C][C][=Branch1][C][=O][O-1]
@@ -36,7 +36,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 🦄️: The molecule is an docosanoid anion that is the conjugate base of (7R,17S)-dihydroxy-(4Z,7Z,11E,13E,16Z,19Z)-docosahexaenoic acid, formed via deprotonation of the carboxy group; major species at pH 7.3. It is an omega-hydroxy-polyunsaturated fatty acid anion and a docosanoid anion.
 ```
 
-- **Text2Mol**: molecule generation based on the given text description.
+- **Text2Mol**: *molecule generation based on the given text description*.
 
 ```txt
 🧑🏻‍🔬: Create a molecule that satisfies the conditions outlined in the description. The molecule is a Glu-Cys-Gly tripeptide derivative of glutathione containing a 2-hydroxyethyl substituent on the S of the Cys residue. It derives from a glutathione. 
@@ -44,7 +44,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 🦄️: [N][C@@H1][Branch1][#C][C][C][C][N][C@@H1][Branch1][Ring1][C][S][C][C][C][C@H1][N][C][=Branch1][C][=O][O][C][=Branch1][C][=O][O][C][=Branch1][C][=O][O]
 ```
 
-- **Forward Reaction Prediction**: predict the outcome of a chemical reaction when given the reactants and reaction reagents.
+- **Forward Reaction Prediction**: *predict the outcome of a chemical reaction when given the reactants and reaction reagents*.
 
 ```txt
 🧑🏻‍🔬: What product could potentially form from the reaction of the given reactants and reagents? [O][=N+1][Branch1][C][O-1][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][Ring2].[C][C][=C][C][=C][C][=C][Ring1][=Branch1]
@@ -52,7 +52,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 🦄️: [N][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][C]
 ```
 
-- **Retrosynthesis**: deconstruct a target molecule into simpler precursor molecules.
+- **Retrosynthesis**: *deconstruct a target molecule into simpler precursor molecules*.
 
 ```txt
 🧑🏻‍🔬: With the given product, suggest some likely reactants that were used in its synthesis. [C][S][=Branch1][C][=O][=Branch1][C][=O][N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
@@ -60,7 +60,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 🦄️: [C][S][=Branch1][C][=O][=Branch1][C][=O][Cl].[N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
 ```
 
-- **Reagent Prediction**: predict the most likely reagents that can be used to carry out a chemical reaction or transformation.
+- **Reagent Prediction**: *predict the most likely reagents that can be used to carry out a chemical reaction or transformation*.
 
 ```txt
 🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used? 
@@ -68,7 +68,7 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 🦄️: 
 ```
 
-- **Property Prediction**: predict various properties of molecules.
+- **Property Prediction**: *predict various properties of molecules*.
 
 ```txt
 🧑🏻‍🔬: I would like to know the HOMO-LUMO gap of this molecule, can you provide it? [N][=C][O][C][C][Branch1][Ring2][C][C][#C][=C][Ring1][Branch2]
