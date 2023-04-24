@@ -63,9 +63,9 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 - **Reagent Prediction**: *predict the most likely reagents that can be used to carry out a chemical reaction or transformation*.
 
 ```txt
-🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used? 
+🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used? [C][O][C][=Branch1][C][=O][/C][=C][Branch1][O][/C][#C][C][=C][C][=C][C][=C][Ring1][=Branch1][C][=C][C][=C][C][=C][Ring1][=Branch1]>>[O][=C][Branch1][C][O][/C][=C][Branch1][O][/C][#C][C][=C][C][=C][C][=C][Ring1][=Branch1][C][=C][C][=C][C][=C][Ring1][=Branch1]
 
-🦄️: 
+🦄️: C1CCOC1.[Na+].[OH-]
 ```
 
 - **Property Prediction**: *predict various properties of molecules*.
