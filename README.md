@@ -32,6 +32,19 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 
 ### Task descriptions
 
+**Mol2Text**: text description generation based on the given molecule.
+
+**Text2Mol**: molecule generation based on the given text description.
+
+**Forward Reaction Prediction**: predict the outcome of a chemical reaction when given the reactants and reaction reagents.
+
+**Retrosynthesis**: deconstruct a target molecule into simpler precursor molecules.
+
+**Reagent Prediction**: predict the most likely reagents that can be used to carry out a chemical reaction or transformation.
+
+**Property Prediction**: predict various properties of molecules.
+
+
 
 ## 🚀 Quick Start 
 
