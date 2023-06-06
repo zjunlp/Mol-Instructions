@@ -173,9 +173,8 @@ def main(
                 gr.components.Textbox(
                     lines=2,
                     label="Instruction",
-                    placeholder="描述模型应该执行的任务",
                 ),
-                gr.components.Textbox(lines=2, label="Input", placeholder="none"),
+                gr.components.Textbox(lines=2, label="Input"),
                 gr.components.Slider(
                     minimum=0, maximum=1, value=0.1, label="Temperature"
                 ),
