@@ -1,4 +1,3 @@
-from __future__ import annotations
 import os
 import sys
 
@@ -8,9 +7,7 @@ import torch
 import transformers
 from peft import PeftModel
 from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
-from gradio.themes.base import Base
-from gradio.themes.utils import colors, fonts, sizes
-from typing import Iterable
+
 from utils.prompter import Prompter
 
 if torch.cuda.is_available():
@@ -24,73 +21,8 @@ try:
 except:  # noqa: E722
     pass
 
-PARENT_BLOCK_CSS = """
-#col_container {
-    width: 90%; 
-    margin-left: auto; 
-    margin-right: auto;
-}
-
-#chatbot {
-    height: 600px; 
-    overflow: auto;
-    background-color: white;
-}
-
-.chat_wrap_space {
-    margin-left: 0.5em
-}
-"""
-ABSTRACT = """
-
-NOTE: too long input (input, instruction) will not be allowed. Please keep input < 500 and instruction < 150
-"""
-BOTTOM_LINE = """
-This demo currently runs 7B version on a RTX 3090 instance.
-"""
-html_code = '''
-<div style="display: flex; justify-content: space-between; align-items: center;">
-  <div style="order: 1;">
-    <h1 style="font-size: 6em; font-family: SimHei;">{title}</h1>
-  </div>
-</div>
-'''
-
-class Seafoam(Base):
-    def __init__(
-        self,
-        *,
-        primary_hue: colors.Color | str = colors.vxgreen,
-        secondary_hue: colors.Color | str = colors.red,
-        neutral_hue: colors.Color | str = colors.gray,
-        spacing_size: sizes.Size | str = sizes.spacing_lg,
-        radius_size: sizes.Size | str = sizes.radius_none,
-        text_size: sizes.Size | str = sizes.text_sm,
-    ):
-        super().__init__(
-            primary_hue=primary_hue,
-            secondary_hue=secondary_hue,
-            neutral_hue=neutral_hue,
-            spacing_size=spacing_size,
-            radius_size=radius_size,
-            text_size=text_size,
-        )
-        super().set(
-            button_primary_background_fill="linear-gradient(90deg, *primary_300, *secondary_400)",
-            button_primary_background_fill_hover="linear-gradient(90deg, *primary_200, *secondary_300)",
-            button_primary_text_color="white",
-            button_primary_background_fill_dark="linear-gradient(90deg, *primary_600, *secondary_800)",
-            slider_color="*secondary_300",
-            slider_color_dark="*secondary_600",
-            block_title_text_weight="600",
-            block_border_width="3px",
-            block_shadow="*shadow_drop_lg",
-            button_shadow="*shadow_drop_lg",
-            button_large_padding="32px",
-        )
-seafoam = Seafoam()
-
 def main(
+    interactive: bool = False,
     protein: bool = False,
     load_8bit: bool = False,
     base_model: str = "",
@@ -109,12 +41,12 @@ def main(
         tokenizer = LlamaTokenizer.from_pretrained(base_model)
     else:
         tokenizer = LlamaTokenizer.from_pretrained(base_model, bos_token='<s>', eos_token='</s>', add_bos_token=True, add_eos_token=False)
-        
     if device == "cuda":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
+            #device_map="auto",
             device_map={"": 0}
         )
         if protein == False:
@@ -124,7 +56,6 @@ def main(
                 torch_dtype=torch.float16,
                 device_map={"": 0},
             )
-
     elif device == "mps":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
@@ -160,24 +91,18 @@ def main(
     model.eval()
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)
-        
-    def add_text(history, instructions, inputs):
-        history = history + [(instructions+"   \n"+inputs,None)]
-        return history, gr.update(value="", interactive=False)
-    
+
     def evaluate(
         instruction,
-        input,
+        input=None,
         temperature=0.1,
         top_p=0.75,
         top_k=40,
         num_beams=4,
-        repetition_penalty=1.0,
+        repetition_penalty=1,
         max_new_tokens=128,
+        **kwargs,
     ):
-        print(instruction)
-        print(input)
-        print(temperature,top_p,top_k,num_beams,repetition_penalty,max_new_tokens)
         
         prompt = prompter.generate_prompt(instruction, input)
         inputs = tokenizer(prompt, return_tensors="pt")
@@ -192,7 +117,8 @@ def main(
             top_p=top_p,
             top_k=top_k,
             num_beams=num_beams,
-            repetition_penalty=repetition_penalty
+            repetition_penalty=repetition_penalty,
+            **kwargs,
         )
         with torch.no_grad():
             generation_output = model.generate(
@@ -205,6 +131,7 @@ def main(
         s = generation_output.sequences[0]
         output = tokenizer.decode(s)
         re=prompter.get_response(output)
+        # 下面三行代码是修改过后的，代表把最后一个']'，‘#’字符的全部删除
         last_bracket_index = re.find('#')
         if last_bracket_index != -1:
             re = re[:last_bracket_index ]
@@ -212,61 +139,69 @@ def main(
         last_bracket_index = re.rfind(']')
         if last_bracket_index != -1:
             re = re[:last_bracket_index + 1]
-        re=re.replace("<br>", "")
+        
         return re
-    
-    def bot(history,
-        temperature,
-        top_p,
-        top_k,
-        num_beams,
-        repetition_penalty,
-        max_new_tokens):
-        instruction=history[-1][0].split("   <br>")[0]
-        input=history[-1][0].split("   <br>")[1].replace("<br>", "")
-        response = evaluate(instruction, input, temperature, top_p, top_k, num_beams, repetition_penalty, max_new_tokens)
-        history[-1][1] = response
-        return history
-    
-    with gr.Blocks(css=PARENT_BLOCK_CSS, theme=seafoam) as demo:
-        state_chatbot = gr.State([])
+    if interactive:
+        while True:
 
-        with gr.Column(elem_id='col_container'):
-            gr.HTML(html_code)
-            with gr.Row():
-                with gr.Column(variant="panel", scale=4):
-                    chatbot = gr.Chatbot(elem_id='chatbot', label=' ')
-
-                with gr.Column(variant="panel", scale=1):
-                    instruction_txtbox = gr.Textbox(placeholder="What do you want to say to AI?", label="Instruction")
-                    input_txtbox = gr.Textbox(placeholder="Surrounding information to AI", label="Input")
-                    hidden_txtbox = gr.Textbox(placeholder="", label="Order", visible=False)
-                    submit_btn = gr.Button(value="Submit",variant="primary").style(size="sm")
-                    Temperature=gr.components.Slider(minimum=0, maximum=1, value=0.1, label="Temperature").style(container=False)
-                    Top_p=gr.components.Slider(minimum=0, maximum=1, value=0.75, label="Top p").style(container=False)
-                    Top_k=gr.components.Slider(minimum=0, maximum=100, step=1, value=40, label="Top k").style(container=False)
-                    Beams=gr.components.Slider(minimum=1, maximum=4, step=1, value=4, label="Beams").style(container=False)
-                    Repetition_penalty=gr.components.Slider(minimum=1, maximum=5, value=1, label="Repetition_penalty").style(container=False)
-                    Max_tokens=gr.components.Slider(minimum=1, maximum=2000, step=1, value=128, label="Max tokens").style(container=False)
+            # get instruction from user
+            instruction = input("Enter instruction: ")
             
-            gr.Markdown(f"{ABSTRACT}")
-            gr.Markdown(f"{BOTTOM_LINE}")
+            # get user input
+            input_text = input("Enter input text: ")
 
-        send_event = submit_btn.click(add_text, [chatbot, instruction_txtbox, input_txtbox], [chatbot, input_txtbox], queue=False).then(
-            bot, [chatbot, Temperature, Top_p, Top_k, Beams, Repetition_penalty, Max_tokens], chatbot
-        )
-        send_event.then(lambda: gr.update(interactive=True), None, [instruction_txtbox], queue=False)
-        send_event.then(lambda: gr.update(interactive=True), None, [input_txtbox], queue=False)
+            # evaluate the instruction with input_text
+            if protein == False:
+                output = evaluate(instruction, input=input_text, temperature=0.1, top_p=0.75, top_k=40, num_beams=4, repetition_penalty=1, max_new_tokens=128)
+            else:
+                output = evaluate(instruction, input=input_text, temperature=0.9, top_p=0.9, top_k=8, num_beams=1, repetition_penalty=1.2, max_new_tokens=1024)
 
-    demo.queue(
-        concurrency_count=4,
-        max_size=100,
-    ).launch(
-        max_threads=10,
-        share=share_gradio,
-        # server_port=args.port,
-        server_name="0.0.0.0",
-    )
+            # print the output
+            print(output)
+
+            # ask if the user wants to continue or exit
+            choice = input("Do you want to continue? (y/n): ")
+            if choice.lower() != "y":
+                break
+
+        
+    else:
+        gr.Interface(
+            title="Mol-Instruction",
+            fn=evaluate,
+            inputs=[
+                gr.components.Textbox(
+                    lines=2,
+                    label="Instruction",
+                    placeholder="描述模型应该执行的任务",
+                ),
+                gr.components.Textbox(lines=2, label="Input", placeholder="none"),
+                gr.components.Slider(
+                    minimum=0, maximum=1, value=0.1, label="Temperature"
+                ),
+                gr.components.Slider(
+                    minimum=0, maximum=1, value=0.75, label="Top p"
+                ),
+                gr.components.Slider(
+                    minimum=0, maximum=100, step=1, value=40, label="Top k"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=4, step=1, value=4, label="Beams"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=5, value=1, label="Repetition_penalty"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=2000, step=1, value=128, label="Max tokens"
+                ),
+            ],
+            outputs=[
+                gr.inputs.Textbox(
+                    lines=5,
+                    label="Output",
+                )
+            ],
+        ).launch(server_name="0.0.0.0", share=share_gradio)
 
 if __name__ == "__main__":
     fire.Fire(main)
