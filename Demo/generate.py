@@ -166,7 +166,11 @@ def main(
 
         
     else:
+        mytheme = gr.themes.Default().set(
+        slider_color="#0000FF",
+        )
         gr.Interface(
+            theme=mytheme,
             title="Mol-Instruction",
             fn=evaluate,
             inputs=[
@@ -188,7 +192,7 @@ def main(
                     minimum=1, maximum=4, step=1, value=4, label="Beams"
                 ),
                 gr.components.Slider(
-                    minimum=1, maximum=5, value=1, label="Repetition_penalty"
+                    minimum=1, maximum=5, value=1, label="Repetition penalty"
                 ),
                 gr.components.Slider(
                     minimum=1, maximum=2000, step=1, value=128, label="Max tokens"
