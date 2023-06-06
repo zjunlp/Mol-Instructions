@@ -37,7 +37,7 @@ cd Demo
 
 Step 1, install Gradio by running：`pip install gradio`. 
 
-Step 2, specify the parameters in the [generate.sh](generate.sh) file.
+Step 2, specify the parameters in the [generate.sh](./Demo/generate.sh) file.
 
 ```shell
 CUDA_VISIBLE_DEVICES=0 python generate.py \
@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
     --lora_weights $FINETUNED_MODEL_PATH \
 ```
 
-Step 3, run the [generate.sh](generate.sh) file in the repository： 
+Step 3, run the [generate.sh](./Demo/generate.sh) file in the repository： 
 
 ```shell
 sh generate.sh
