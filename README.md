@@ -26,14 +26,14 @@ Our model demonstrates a stronger understanding of molecular knowledge and is co
 
 ## ⚙ Demo
 
+### Web Demo
+
 We have provided a web version demo based on [Gradio](https://gradio.app). To use it, you first need to download this repository:
 
 ```shell
 git clone https://github.com/zjunlp/Mol-Instruction
 cd Demo
 ```
-
-### Web Demo
 
 Step 1, install Gradio by running：`pip install gradio`. 
 
