@@ -34,7 +34,7 @@
 
 <h2 id="1">1. Overview</h2>
 
-<h3 id="1-1"> 📊 Data Stats</h3>
+<h3 id="1-1"> 1.1 📊 Data Stats</h3>
 
 <div align=center><img src="fig/stat.png" width="90%" height="90%" /></div>
 
@@ -43,16 +43,16 @@
 - 🧬 *Protein-oriented instructions:* Rooted in the biosciences, this component presents 505K instructions across five distinct categories of tasks. These tasks aim to predict the structure, function, and activity of proteins, and facilitate protein design based on textual directives.
 - 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
-<h3 id="1-2"> 🛠️ Data Construction</h3>
+<h3 id="1-2"> 1.2 🛠️ Data Construction</h3>
 
-<h3 id="1-3"> 🤗 Data Release</h3>
+<h3 id="1-3"> 1.3 🤗 Data Release</h3>
 
 We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions).
 
 
 <h2 id="2">2. Tasks</h2>
 
-<h3 id="2-1">🔬 Molecule-oriented</h3>
+<h3 id="2-1"> 2.1 🔬 Molecule-oriented</h3>
 
 
 <details>
@@ -124,7 +124,7 @@ We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://hugg
 </details>
 
 
-<h3 id="2-2">🧬 Protein-oriented</h3>
+<h3 id="2-2"> 2.2 🧬 Protein-oriented</h3>
 
 <details>
   <summary><b>Protein design</b></summary>
@@ -187,7 +187,7 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 </details>
 
 
-<h3 id="2-3">🥼 Biomolecule text</h3>
+<h3 id="2-3"> 2.3 🥼 Biomolecule text</h3>
 
 <details>
   <summary><b>Chemical entity recognition</b></summary>
@@ -261,7 +261,7 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 
 <h2 id="3">3. Demo</h2>
 
-<h3 id="3-1"> 🤗 Model Weight Release</h3>
+<h3 id="3-1"> 3.1 🤗 Model Weight Release</h3>
 
 We release the model weights on Hugging Face at:
 
@@ -269,7 +269,7 @@ We release the model weights on Hugging Face at:
 - 🧬 *Protein-oriented instructions:* [zjunlp/llama-molinst-protein-7b](https://huggingface.co/zjunlp/llama-molinst-protein-7b)
 - 🥼 *Biomolecular text instructions:* [zjunlp/llama-molinst-biotext-7b](https://huggingface.co/zjunlp/llama-molinst-biotext-7b)
 
-<h3 id="3-2"> 📝 Model Usage Guide</h3>
+<h3 id="3-2"> 3.2 📝 Model Usage Guide</h3>
 
 We have provided a web version demo based on [Gradio](https://gradio.app). To use it, you first need to download this repository:
 
@@ -316,7 +316,7 @@ python generate.py --interactive True
   <img alt="Demo" src=gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
 </p>
 
-<h3 id="3-3"> 💡 FAQ</h3>
+<h3 id="3-3"> 3.3 💡 FAQ</h3>
 
 - Question: What should I do if the model encounters � during decoding?
 
@@ -344,7 +344,7 @@ Please note that all model weights and data of MoLAMA is exclusively licensed fo
 
 <h2 id="5">5. About</h2>
 
-<h3 id="5-1"> 📚 References</h3>
+<h3 id="5-1"> 5.1 📚 References</h3>
 If you use our repository, please cite the following related papers:
 
 ```
@@ -356,5 +356,5 @@ If you use our repository, please cite the following related papers:
 }
 ```
             
-<h3 id="5-2"> 🫱🏻‍🫲🏾 Acknowledgements</h3>
+<h3 id="5-2"> 5.2 🫱🏻‍🫲🏾 Acknowledgements</h3>
 We appreciate [LLaMA](https://github.com/facebookresearch/llama), [Huggingface Transformers Llama](https://github.com/huggingface/transformers/tree/main/src/transformers/models/llama), [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html), [Alpaca-LoRA](https://github.com/tloen/alpaca-lora), [Chatbot Service](https://github.com/deep-diver/LLM-As-Chatbot) and many other related works for their open-source contributions.
