@@ -4,14 +4,18 @@
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/cama/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/zjunlp/cama/blob/main/DATA_LICENSE)
 
+
+<div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
+
 ## 🆕 News
 - \[**June 2023**\] Release the first version (v1) of datasets and model weights.
 
 
 ## 📌 Contents
 - [Overview](#1)
-  - [Dataset Stats](#1-1)
-  - [Data Release](#1-2)
+  - [Data Stats](#1-1)
+  - [Data Construction](#1-2)
+  - [Data Release](#1-3)
 - [Tasks](#2)
   - [Molecule-oriented](#2-1)
   - [Protein-oriented](#2-2)
@@ -20,13 +24,17 @@
   - [Model Weight Release](#3-1)
   - [Model Usage Guide](#3-2)
   - [FAQ](#3-3)
-- [Limitations](#4)
+- [Notices](#4)
+  - [Usage and License](#4-1) 
+  - [Limitations](#4-2)  
 - [About](#5)
+  - [References](#5-1)
+  - [Acknowledgements](#5-2)
 
 
 <h2 id="1">1. Overview</h2>
 
-<h3 id="1-1">📊 Dataset Stats</h3>
+<h3 id="1-1"> 📊 Data Stats</h3>
 
 <div align=center><img src="fig/stat.png" width="90%" height="90%" /></div>
 
@@ -35,15 +43,14 @@
 - 🧬 *Protein-oriented instructions:* Rooted in the biosciences, this component presents 505K instructions across five distinct categories of tasks. These tasks aim to predict the structure, function, and activity of proteins, and facilitate protein design based on textual directives.
 - 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
+<h3 id="1-2"> 🛠️ Data Construction</h3>
 
-<h3 id="1-2">🤗 Data Release</h3>
+<h3 id="1-3"> 🤗 Data Release</h3>
 
 We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions).
 
 
 <h2 id="2">2. Tasks</h2>
-
-<div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
 
 <h3 id="2-1">🔬 Molecule-oriented</h3>
 
@@ -325,17 +332,17 @@ python generate.py --interactive True
 
 
 
-<h2 id="4">4. Limitations</h2>
+<h2 id="4">4. Notices</h2>
 
 
-<h3 id="4-1">🚨 4.1. Usage and License Notices</h3>
+<h3 id="4-1"> 🚨 4.1. Usage and License</h3>
 
 Please note that all model weights and data of MoLAMA is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. Commercial use is strictly **prohibited**.
 
-<h3 id="4-2">4.2. Limitations</h3>
+<h3 id="4-2"> ⚠️ 4.2. Limitations</h3>
 
 
-<h2 id=6">5. About</h2>
+<h2 id="5">5. About</h2>
 
 <h3 id="5-1"> 📚 References</h3>
 If you use our repository, please cite the following related papers:
