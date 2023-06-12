@@ -282,12 +282,12 @@ We have provided a web version demo based on [Gradio](https://gradio.app). To us
 
 ```shell
 >> git clone https://github.com/zjunlp/Mol-Instruction
->> cd Demo
+>> cd demo
 ```
 
 Step 1, install Gradio by running：`pip install gradio`. 
 
-Step 2, specify the parameters in the [generate.sh](./Demo/generate.sh) file.
+Step 2, specify the parameters in the [generate.sh](./demo/generate.sh) file.
 
 ```shell
 >> CUDA_VISIBLE_DEVICES=0 python generate.py \
@@ -299,7 +299,7 @@ Step 2, specify the parameters in the [generate.sh](./Demo/generate.sh) file.
     --lora_weights $FINETUNED_MODEL_PATH \
 ```
 
-Step 3, run the [generate.sh](./Demo/generate.sh) file in the repository： 
+Step 3, run the [generate.sh](./demo/generate.sh) file in the repository： 
 
 ```shell
 >> sh generate.sh
@@ -320,7 +320,7 @@ We offer two methods: the first one is command-line interaction, and the second 
   The disadvantage is the inability to dynamically change decoding parameters.
 
 <p align="center">
-  <img alt="Demo" src=gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
+  <img alt="Demo" src=fig/gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
 </p>
 
 <h3 id="3-3"> 💡 3.3 FAQ</h3>
