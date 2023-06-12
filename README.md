@@ -1,21 +1,18 @@
- # 🦄️ Mol-Instructions
+<h1 align="center">  🧪 Mol-Instructions  </h1>
+<h3 align="center"> An open, large-scale biomolecular instruction dataset for large language models. </h3>
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/cama/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/zjunlp/cama/blob/main/DATA_LICENSE)
 
-Welcome to the MoLAMA project repository! 
 
-MoLAMA is a large-scale molecular language model that possesses the ability to understand 🧑🏻‍🔬 *human language* and 🔬 *molecular language*. This capability can assist communities in conducting research in the field of molecular science.
+## Overview
 
-**The project is currently ongoing, with continuous enhancements being made to iteratively improve the model.**
+### 📊 Dataset Stats
+**Mol-Instructions** comprises three cardinal components:
+- 🔬 *Molecule-oriented instructions:* This component delves into the world of small molecules, emphasizing their inherent properties and behaviors. It sheds light on the fundamental challenges of diverse chemical reactions and molecular design, with 148,4K instructions across six tasks.
+- 🧬 *Protein-oriented instructions:* Rooted in the biosciences, this component presents 505K instructions across five distinct categories of tasks. These tasks aim to predict the structure, function, and activity of proteins, and facilitate protein design based on textual directives.
+- 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
-
-## 💡 Overview
-
-### About
-This is the repository of MoLAMA, a general-purpose large language model for molecules. We performed low-rank adaptation on Molecule-English bilingual data based on the weights of LLaMA-7B and Alpaca-LoRA. The instruction data contains a wide range of molecular data, including data related to molecular descriptions, chemical synthesis, and molecular property, among other molecular-related fields. 
-
-Our model demonstrates a stronger understanding of molecular knowledge and is continuously refined to incorporate more molecular information. Currently, MoLAMA is still in its initial stage of development, and there are many limitations and challenges that need to be addressed. While it may be difficult to achieve complete coverage, we welcome any suggestions or ideas you may have for MoLAMA.
 
 ### Model Release
 - adapter weights (huggingface link)
