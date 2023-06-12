@@ -309,13 +309,13 @@ We offer two methods: the first one is command-line interaction, and the second 
 
 1. Use the following command to enter **web-based interaction**:
 ```shell
->> python generate.py --interactive False
+>> python generate.py --interactive True
 ```
   The program will run a web server and output an address. Open the output address in a browser to use it.
 
 2. Use the following command to enter **command-line interaction**:
 ```shell
->> python generate.py --interactive True
+>> python generate.py --interactive False
 ```
   The disadvantage is the inability to dynamically change decoding parameters.
 
