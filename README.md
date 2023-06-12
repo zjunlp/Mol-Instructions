@@ -14,7 +14,7 @@
 - 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
 <!-- <p align="center" width="100%">
-<a href="" target="_blank"><img src="./fig/stat-all.pdf" alt="IE" style="width: 90%; min-width: 90px; display: block; margin: auto;"></a>
+<a href="" target="_blank"><img src="fig/stat.png" alt="IE" style="width: 90%; min-width: 90px; display: block; margin: auto;"></a>
 </p> -->
 
 <div align=center><img src="fig/stat-all.pdf" width="100%" height="100%" /></div>
