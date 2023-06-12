@@ -38,12 +38,13 @@
 
 <h3 id="1-1">📊 Dataset Stats</h3>
 
+<div align=center><img src="fig/stat.png" width="90%" height="90%" /></div>
+
 **Mol-Instructions** comprises three cardinal components:
 - 🔬 *Molecule-oriented instructions:* This component delves into the world of small molecules, emphasizing their inherent properties and behaviors. It sheds light on the fundamental challenges of diverse chemical reactions and molecular design, with 148,4K instructions across six tasks.
 - 🧬 *Protein-oriented instructions:* Rooted in the biosciences, this component presents 505K instructions across five distinct categories of tasks. These tasks aim to predict the structure, function, and activity of proteins, and facilitate protein design based on textual directives.
 - 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
-<div align=center><img src="fig/stat.png" width="90%" height="90%" /></div>
 
 <h3 id="1-2">🤗 Data Release</h3>
 
@@ -59,6 +60,7 @@ We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://hugg
 
 <h3 id="2-1">🔬 Molecule-oriented</h3>
 
+<div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
 
 <details>
   <summary><b>Molecule description generation</b></summary>
