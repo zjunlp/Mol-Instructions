@@ -59,7 +59,7 @@ We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://hugg
 
 <h2 id="2">2. Tasks</h2>
 
-<h3 id="2-1"> 2.1 🔬 Molecule-oriented</h3>
+<h3 id="2-1"> 🔬 2.1 Molecule-oriented</h3>
 
 
 <details>
@@ -194,7 +194,7 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 </details>
 
 
-<h3 id="2-3"> 2.3 🥼 Biomolecule text</h3>
+<h3 id="2-3"> 🥼 2.3 Biomolecule text</h3>
 
 <details>
   <summary><b>Chemical entity recognition</b></summary>
@@ -309,13 +309,13 @@ We offer two methods: the first one is command-line interaction, and the second 
 
 1. Use the following command to enter **web-based interaction**:
 ```shell
-python generate.py --interactive False
+>> python generate.py --interactive False
 ```
   The program will run a web server and output an address. Open the output address in a browser to use it.
 
 2. Use the following command to enter **command-line interaction**:
 ```shell
-python generate.py --interactive True
+>> python generate.py --interactive True
 ```
   The disadvantage is the inability to dynamically change decoding parameters.
 
@@ -325,17 +325,17 @@ python generate.py --interactive True
 
 <h3 id="3-3"> 💡 3.3 FAQ</h3>
 
-- Question: What should I do if the model encounters � during decoding?
+- *Question:* What should I do if the model encounters � during decoding?
 
-  Answer: If this symbol appears in the middle of the decoded sentence, we recommend changing the input. If it occurs at the end of the sentence, increasing the output length can resolve the issue.
+  *Answer:* If this symbol emerges in the middle of the decoded sentence, we recommend changing the input. If it shows up at the end of the sentence, you can tackle this issue by extending the output length.
 
-- Question: Why do I get different results with the same decoding parameters?
+- *Question:* Why do I receive varied results despite using identical decoding parameters?
 
-  Answer: It is possible that you have enabled `do_sample=True`. It could also be due to the order of execution. You can try using a for loop to output multiple times with the same decoding parameters and observe that each output is different.
+  *Answer:* This might occur if you have enabled `do_sample=True`. Another factor could be the order in which tasks are executed. A useful approach would be to use a for loop to generate multiple outputs with the same decoding parameters, enabling you to note the variance in each output.
   
-- Question: Why is the extraction or answer quality not good?
+- *Question:* What could be the reason for subpar answer quality?
 
-  Answer: Please try changing the decoding parameters.
+  *Answer:* Modifying the decoding parameters could help in improving the quality of the extraction or the answer.
 
 
 
@@ -344,9 +344,15 @@ python generate.py --interactive True
 
 <h3 id="4-1"> 🚨 4.1. Usage and License</h3>
 
-Please note that all model weights and data of MoLAMA is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. Commercial use is strictly **prohibited**.
+Please note that all data and model weights of **Mol-Instructions** is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. 
+
+We emphatically urge all users to adhere to the highest ethical standards when using our dataset, including maintaining fairness, transparency, and responsibility in their research. Any usage of the dataset that may lead to harm or pose a detriment to society is strictly **forbidden**.
+
+In terms of dataset maintenance, we pledge our commitment to provide necessary upkeep. This will ensure the continued relevance and usability of the dataset in light of evolving research landscapes. This commitment encompasses regular updates, error checks, and amendments in accordance with field advancements and user feedback.
 
 <h3 id="4-2"> ⚠️ 4.2. Limitations</h3>
+
+The current state of the model, obtained via instruction tuning, is a preliminary demonstration. Its capacity to handle real-world, production-grade tasks remains limited. Moreover, there is a vast reservoir of rich instruction data that remains to be collected and exploited.
 
 
 <h2 id="5">5. About</h2>
