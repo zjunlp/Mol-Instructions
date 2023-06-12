@@ -31,27 +31,22 @@ def train(
         data_path: str = "./data/",
         output_dir: str = "./checkpoint",
         # training hyperparams
-        batch_size: int = 128,
-        micro_batch_size: int = 4,
-        num_epochs: int = 3,
+        batch_size: int = 800,
+        micro_batch_size: int = 100,
+        num_epochs: int = 10,
         learning_rate: float = 3e-4,
-        cutoff_len: int = 512,
+        cutoff_len: int = 256,
         val_set_size: int = 2000,
         # lora hyperparams
         lora_r: int = 16,
-        lora_alpha: int = 32,
+        lora_alpha: int = 16,
         lora_dropout: float = 0.05,
         lora_target_modules: List[str] = [
             "q_proj",
             "v_proj",
-            "k_proj",
-            "o_proj",
-            "gate_proj",
-            "down_proj",
-            "up_proj"
         ],
         # llm hyperparams
-        train_on_inputs: bool = False,  # if False, masks out inputs in loss
+        train_on_inputs: bool = True,  # if False, masks out inputs in loss
         group_by_length: bool = False,  # faster, but produces an odd training loss curve
         # wandb params
         wandb_project: str = "",
@@ -60,12 +55,6 @@ def train(
         wandb_log_model: str = "",  # options: false | true
         resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
         prompt_template_name: str = "alpaca",  # The prompt template to use, will default to alpaca.
-        # train hyperparams
-        warmup_steps=10,
-        logging_steps=1,
-        save_steps=10,
-        save_total_limit=5,
-        eval_steps=10,
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
@@ -129,10 +118,7 @@ def train(
     tokenizer.pad_token_id = (
         0  # unk. we want this to be different from the eos token
     )
-    tokenizer.padding_side = "right"
-    model.config.pad_token_id = tokenizer.pad_token_id = 0  # same as unk token id
-    model.config.bos_token_id = tokenizer.bos_token_id = 1
-    model.config.eos_token_id = tokenizer.eos_token_id = 2
+    tokenizer.padding_side = "left"
 
     def tokenize(prompt, add_eos_token=True):
         # there's probably a way to do this with the tokenizer settings
@@ -145,9 +131,9 @@ def train(
             return_tensors=None,
         )
         if (
-                result["input_ids"][-1] != tokenizer.eos_token_id
-                and len(result["input_ids"]) < cutoff_len
-                and add_eos_token
+            result["input_ids"][-1] != tokenizer.eos_token_id
+            and len(result["input_ids"]) < cutoff_len
+            and add_eos_token
         ):
             result["input_ids"].append(tokenizer.eos_token_id)
             result["attention_mask"].append(1)
@@ -171,10 +157,10 @@ def train(
             user_prompt_len = len(tokenized_user_prompt["input_ids"])
 
             tokenized_full_prompt["labels"] = [
-                                                  -100
-                                              ] * user_prompt_len + tokenized_full_prompt["labels"][
-                                                                    user_prompt_len:
-                                                                    ]  # could be sped up, probably
+                -100
+            ] * user_prompt_len + tokenized_full_prompt["labels"][
+                user_prompt_len:
+            ]  # could be sped up, probably
         return tokenized_full_prompt
 
     model = prepare_model_for_int8_training(model)
@@ -205,10 +191,10 @@ def train(
         if os.path.exists(checkpoint_name):
             print(f"Restarting from {checkpoint_name}")
             adapters_weights = torch.load(checkpoint_name)
-            model = set_peft_model_state_dict(model, adapters_weights)
+            set_peft_model_state_dict(model, adapters_weights)
         else:
             print(f"Checkpoint {checkpoint_name} not found")
-
+            
     model.print_trainable_parameters()  # Be more transparent about the % of trainable params.
 
     if data_path.endswith(".json") or data_path.endswith(".jsonl"):
