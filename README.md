@@ -325,6 +325,10 @@ We offer two methods: the first one is command-line interaction, and the second 
 
 <h3 id="3-3"> 💡 3.3 FAQ</h3>
 
+- *Question:* What action should be taken if the model encounters `<unk>` and subsequently repeats the input during decoding?
+  
+  *Answer:* Consider reducing the value of the `max tokens`.
+
 - *Question:* What should I do if the model encounters � during decoding?
 
   *Answer:* If this symbol emerges in the middle of the decoded sentence, we recommend changing the input. If it shows up at the end of the sentence, you can tackle this issue by extending the output length.
