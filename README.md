@@ -226,7 +226,7 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 <details>
   <summary><b>Open question</b></summary>
   
-🧑🏻‍🔬: What virus causes chronic disease?
+🧑🏻‍🔬: *What virus causes chronic disease?*
 
 🤖: Hepatitis C virus (HCV).
   
