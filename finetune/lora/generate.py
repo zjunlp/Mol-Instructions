@@ -126,7 +126,7 @@ def main(
             gr.components.Textbox(
                 lines=2, 
                 label="Input", 
-                placeholder="[C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][=Branch1][C][=O][O][C@H1][Branch2][Ring1][=Branch1][C][O][C][=Branch1][C][=O][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][O][P][=Branch1][C][=O][Branch1][C][O][O][C][C@@H1][Branch1][=Branch1][C][=Branch1][C][=O][O][N]",
+                placeholder="[As]",
             ),
             gr.components.Slider(
                 minimum=0, maximum=1, value=0.1, label="Temperature"
