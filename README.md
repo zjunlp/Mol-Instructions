@@ -16,10 +16,10 @@
   - [Molecule-oriented](#2-1)
   - [Protein-oriented](#2-2)
   - [Biomolecule text](#2-3) 
-<!-- - Cases
-  - [](#1-1)
-  - [Information Extraction Cases](#1-2)
-  - [General Ability Cases](#1-3)
+- [Demo](#3)
+  - [Model Weight Release](#3-1)
+  - [Model Usage Guide](#3-2)
+<!-- 
 - Quick Start
   - [Environment Configuration](#2-1)
   - [Model Weight(Pretrain and LoRA)](#2-2)
@@ -49,11 +49,6 @@
 <h3 id="1-2">🤗 Data Release</h3>
 
 We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions).
-
-<!-- 
-### Model Release
-- adapter weights (huggingface link)
-- quantized model (huggingface link) -->
 
 
 <h2 id="2">2. Tasks</h2>
@@ -267,14 +262,23 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 </details>
 
 
+<h2 id="3">3. Demo</h2>
 
-## ⚙ Demo
+<h3 id="3-1"> 🤗 Model Weight Release</h3>
+
+We release the model weights on Hugging Face at:
+
+- 🔬 *Molecule-oriented instructions:* [zjunlp/llama-molinst-molecule-7b](https://huggingface.co/zjunlp/llama-molinst-molecule-7b)
+- 🧬 *Protein-oriented instructions:* [zjunlp/llama-molinst-protein-7b](https://huggingface.co/zjunlp/llama-molinst-protein-7b)
+- 🥼 *Biomolecular text instructions:* [zjunlp/llama-molinst-biotext-7b](https://huggingface.co/zjunlp/llama-molinst-biotext-7b)
+
+<h3 id="3-2"> 📝 Model Usage Guide</h3>
 
 We have provided a web version demo based on [Gradio](https://gradio.app). To use it, you first need to download this repository:
 
 ```shell
-git clone https://github.com/zjunlp/Mol-Instruction
-cd Demo
+>> git clone https://github.com/zjunlp/Mol-Instruction
+>> cd Demo
 ```
 
 Step 1, install Gradio by running：`pip install gradio`. 
@@ -282,7 +286,7 @@ Step 1, install Gradio by running：`pip install gradio`.
 Step 2, specify the parameters in the [generate.sh](./Demo/generate.sh) file.
 
 ```shell
-CUDA_VISIBLE_DEVICES=0 python generate.py \
+>> CUDA_VISIBLE_DEVICES=0 python generate.py \
     --interactive False\
     --protein False\
     --load_8bit \
@@ -294,73 +298,22 @@ CUDA_VISIBLE_DEVICES=0 python generate.py \
 Step 3, run the [generate.sh](./Demo/generate.sh) file in the repository： 
 
 ```shell
-sh generate.sh
+>> sh generate.sh
 ```
 
-**web-based interaction**
+We offer two methods: the first one is command-line interaction, and the second one is web-based interaction, which provides greater flexibility. 
+
+1. Use the following command to enter **web-based interaction**:
 ```shell
---interactive False\
+python generate.py --interactive False
 ```
-The program will run a web server and output an address. Open the output address in a browser to use it.
+  The program will run a web server and output an address. Open the output address in a browser to use it.
 
-**command-line interaction:**
+2. Use the following command to enter **command-line interaction**:
 ```shell
---interactive True\
+python generate.py --interactive True
 ```
-The disadvantage is the inability to dynamically change decoding parameters.
-
-
-### Task descriptions
-
-- **Mol2Text**: *text description generation based on the given molecule*.
-
-```txt
-🧑🏻‍🔬: Provide a description of this molecule. [C][C][/C][=C][\C][/C][=C][\C][C@H1][Branch1][C][O][C@@H1][Branch1][P][/C][=C][/C][=C][/C][=C][\C][/C][=C][\C][C][C][=Branch1][C][=O][O-1][S][C][C@H1][Branch1][C][NH3+1][C][=Branch1][C][=O][N][C][C][=Branch1][C][=O][O-1]
-
-🦄️: The molecule is an docosanoid anion that is the conjugate base of (7R,17S)-dihydroxy-(4Z,7Z,11E,13E,16Z,19Z)-docosahexaenoic acid, formed via deprotonation of the carboxy group; major species at pH 7.3. It is an omega-hydroxy-polyunsaturated fatty acid anion and a docosanoid anion.
-```
-
-- **Text2Mol**: *molecule generation based on the given text description*.
-
-```txt
-🧑🏻‍🔬: Create a molecule that satisfies the conditions outlined in the description. The molecule is a Glu-Cys-Gly tripeptide derivative of glutathione containing a 2-hydroxyethyl substituent on the S of the Cys residue. It derives from a glutathione. 
-
-🦄️: [N][C@@H1][Branch1][#C][C][C][C][N][C@@H1][Branch1][Ring1][C][S][C][C][C][C@H1][N][C][=Branch1][C][=O][O][C][=Branch1][C][=O][O][C][=Branch1][C][=O][O]
-```
-
-- **Forward Reaction Prediction**: *predict the outcome of a chemical reaction when given the reactants and reaction reagents*.
-
-```txt
-🧑🏻‍🔬: What product could potentially form from the reaction of the given reactants and reagents? [O][=N+1][Branch1][C][O-1][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][Ring2].[C][C][=C][C][=C][C][=C][Ring1][=Branch1]
-
-🦄️: [N][C][=C][C][Branch1][C][Cl][=C][Branch2][Ring1][Ring1][O][C][=C][C][=C][Branch1][C][Cl][C][=C][C][=C][C][=C][Ring1][O][Ring1][=Branch1][C][Branch1][C][Cl][=C][Ring2][Ring1][C]
-```
-
-- **Retrosynthesis**: *deconstruct a target molecule into simpler precursor molecules*.
-
-```txt
-🧑🏻‍🔬: With the given product, suggest some likely reactants that were used in its synthesis. [C][S][=Branch1][C][=O][=Branch1][C][=O][N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
-
-🦄️: [C][S][=Branch1][C][=O][=Branch1][C][=O][Cl].[N][C][=C][C][=C][Branch1][=Branch1][N+1][=Branch1][C][=O][O-1][C][Branch1][C][Cl][=C][Ring1][#Branch2]
-```
-
-- **Reagent Prediction**: *predict the most likely reagents that can be used to carry out a chemical reaction or transformation*.
-
-```txt
-🧑🏻‍🔬: Given this chemical reaction, what are some reagents that could have been used? [C][O][C][=Branch1][C][=O][/C][=C][Branch1][O][/C][#C][C][=C][C][=C][C][=C][Ring1][=Branch1][C][=C][C][=C][C][=C][Ring1][=Branch1]>>[O][=C][Branch1][C][O][/C][=C][Branch1][O][/C][#C][C][=C][C][=C][C][=C][Ring1][=Branch1][C][=C][C][=C][C][=C][Ring1][=Branch1]
-
-🦄️: C1CCOC1.[Na+].[OH-]
-```
-
-- **Property Prediction**: *predict various properties of molecules*.
-
-```txt
-🧑🏻‍🔬: I would like to know the HOMO-LUMO gap of this molecule, can you provide it? [N][=C][O][C][C][Branch1][Ring2][C][C][#C][=C][Ring1][Branch2]
-
-🦄️: 0.2136
-```
-
-### Example Demonstration
+  The disadvantage is the inability to dynamically change decoding parameters.
 
 <p align="center">
   <img alt="Demo" src=gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
