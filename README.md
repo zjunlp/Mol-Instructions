@@ -4,27 +4,51 @@
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/cama/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/zjunlp/cama/blob/main/DATA_LICENSE)
 
+## 📰 News
+- \[**June 2023**\] Release the first version (v1) of datasets and model weights.
 
-## Overview
 
-### 📊 Dataset Stats
+## 📌 Contents
+- Overview
+  - [Dataset Stats](#1-1)
+  - [Data Release](#1-2)
+<!-- - Cases
+  - [](#1-1)
+  - [Information Extraction Cases](#1-2)
+  - [General Ability Cases](#1-3)
+- Quick Start
+  - [Environment Configuration](#2-1)
+  - [Model Weight(Pretrain and LoRA)](#2-2)
+  - [Model Usage Guide](#2-4)
+  - [Information Extraction Prompt](#2-5)
+- Training Details
+  - [Pertraining data and Pretraining scripts](#3-1)
+  - [Instruction data and Instruction-tuning scripts](#3-3)
+- [Limitations](#4)
+- [TODO List](#5)
+- [FAQ](#6)
+- [Acknowledgments/Contributors/Citations](#7) -->
+
+
+<h2 id="1">Overview</h2>
+
+<h3 id="1-1">📊 Dataset Stats</h3>
 **Mol-Instructions** comprises three cardinal components:
 - 🔬 *Molecule-oriented instructions:* This component delves into the world of small molecules, emphasizing their inherent properties and behaviors. It sheds light on the fundamental challenges of diverse chemical reactions and molecular design, with 148,4K instructions across six tasks.
 - 🧬 *Protein-oriented instructions:* Rooted in the biosciences, this component presents 505K instructions across five distinct categories of tasks. These tasks aim to predict the structure, function, and activity of proteins, and facilitate protein design based on textual directives.
 - 🥼 *Biomolecular text instructions:* Predominantly designed to cater to NLP tasks within the fields of bioinformatics and chemoinformatics, this part encapsulates six information extraction and Q\&A tasks represented through 53K instructions.
 
-<!-- <p align="center" width="100%">
-<a href="" target="_blank"><img src="fig/stat.png" alt="IE" style="width: 90%; min-width: 90px; display: block; margin: auto;"></a>
-</p> -->
+<div align=center><img src="fig/stat.png" width="90%" height="90%" /></div>
 
-<div align=center><img src="fig/stat-all.pdf" width="100%" height="100%" /></div>
+<h3 id="1-2">🤗 Data Release</h3>
+We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions).
 
+<!-- 
 ### Model Release
 - adapter weights (huggingface link)
-- quantized model (huggingface link)
+- quantized model (huggingface link) -->
 
-### Data Release
-- molecular instructions (website?)
+
 
 ## ⚙ Demo
 
