@@ -47,10 +47,10 @@
 
 <div align=center><img src="fig/framework.png" width="100%" height="100%" /></div>
 
-- *Human-AI Collaboration Task Description Creation*: In real-world applications, task instructions must be able to accommodate the varied and dynamic nature of human needs and queries. We emulate this diversity by starting with a clear, human-crafted description for each task, which is then used as an input to GPT-3.5-turbo.
-- *Information Derivation from Existing Data*: Biomolecular data often requires specialist laboratory experiments and expert analysis, making authoritative and recognized biochemistry databases an ideal source of our data. With suitable processing, these resources enable us to extract the required instruction data.
-- *Template-based Conversion of Biological Data into Textual Format*: To facilitate the transformation of these structured annotations into a textual format, we design a diverse array of templates. Each resulting text-based annotation serves as a guideline for protein design.
-- *Quality Control*: To expedite the model's ability to generate precise biomolecules, we implement stringent quality control measures for our biomolecular data.
+- 🤖️ *Human-AI Collaboration Task Description Creation*: In real-world applications, task instructions must be able to accommodate the varied and dynamic nature of human needs and queries. We emulate this diversity by starting with a clear, human-crafted description for each task, which is then used as an input to GPT-3.5-turbo.
+- 📑 *Information Derivation from Existing Data*: Biomolecular data often requires specialist laboratory experiments and expert analysis, making authoritative and recognized biochemistry databases an ideal source of our data. With suitable processing, these resources enable us to extract the required instruction data.
+- 📜 *Template-based Conversion of Biological Data into Textual Format*: To facilitate the transformation of these structured annotations into a textual format, we design a diverse array of templates. Each resulting text-based annotation serves as a guideline for protein design.
+- ✅ *Quality Control*: To expedite the model's ability to generate precise biomolecules, we implement stringent quality control measures for our biomolecular data.
 
 <h3 id="1-3"> 🤗 1.3 Data Release</h3>
 
