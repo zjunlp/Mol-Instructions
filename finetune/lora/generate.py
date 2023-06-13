@@ -1,6 +1,6 @@
 import os
 import sys
-os.environ["CUDA VISIBLE DEVICES"] ="3"
+
 import fire
 import gradio as gr
 import torch
@@ -21,12 +21,13 @@ try:
 except:  # noqa: E722
     pass
 
-
 def main(
+    CLI: bool = False,
+    protein: bool = False,
     load_8bit: bool = False,
     base_model: str = "",
     lora_weights: str = "zjunlp/llama-molinst-molecule-7b",
-    prompt_template: str = "",  # The prompt template to use, will default to alpaca.
+    prompt_template: str = "",  
     server_name: str = "0.0.0.0",  # Allows to listen on all interfaces by providing '0.
     share_gradio: bool = False,
 ):
@@ -36,40 +37,48 @@ def main(
     ), "Please specify a --base_model, e.g. --base_model='decapoda-research/llama-7b-hf'"
 
     prompter = Prompter(prompt_template)
-    tokenizer = LlamaTokenizer.from_pretrained(base_model)
+    if protein == False:
+        tokenizer = LlamaTokenizer.from_pretrained(base_model)
+    else:
+        tokenizer = LlamaTokenizer.from_pretrained(base_model, bos_token='<s>', eos_token='</s>', add_bos_token=True, add_eos_token=False)
     if device == "cuda":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
             load_in_8bit=load_8bit,
             torch_dtype=torch.float16,
-            device_map="auto",
+            #device_map="auto",
+            device_map={"": 0}
         )
-        model = PeftModel.from_pretrained(
-            model,
-            lora_weights,
-            torch_dtype=torch.float16,
-        )
+        if protein == False:
+            model = PeftModel.from_pretrained(
+                model,
+                lora_weights,
+                torch_dtype=torch.float16,
+                device_map={"": 0},
+            )
     elif device == "mps":
         model = LlamaForCausalLM.from_pretrained(
             base_model,
             device_map={"": device},
             torch_dtype=torch.float16,
         )
-        model = PeftModel.from_pretrained(
-            model,
-            lora_weights,
-            device_map={"": device},
-            torch_dtype=torch.float16,
-        )
+        if protein == False:
+            model = PeftModel.from_pretrained(
+                model,
+                lora_weights,
+                device_map={"": device},
+                torch_dtype=torch.float16,
+            )
     else:
         model = LlamaForCausalLM.from_pretrained(
             base_model, device_map={"": device}, low_cpu_mem_usage=True
         )
-        model = PeftModel.from_pretrained(
-            model,
-            lora_weights,
-            device_map={"": device},
-        )
+        if protein == False:
+            model = PeftModel.from_pretrained(
+                model,
+                lora_weights,
+                device_map={"": device},
+            )
 
     # unwind broken decapoda-research config
     model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
@@ -90,17 +99,25 @@ def main(
         top_p=0.75,
         top_k=40,
         num_beams=4,
+        repetition_penalty=1,
         max_new_tokens=128,
         **kwargs,
     ):
+        
         prompt = prompter.generate_prompt(instruction, input)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
+        if protein == False:
+            do_sample=False
+        else:
+            do_sample=True
         generation_config = GenerationConfig(
+            do_sample=do_sample,
             temperature=temperature,
             top_p=top_p,
             top_k=top_k,
             num_beams=num_beams,
+            repetition_penalty=repetition_penalty,
             **kwargs,
         )
         with torch.no_grad():
@@ -113,48 +130,87 @@ def main(
             )
         s = generation_output.sequences[0]
         output = tokenizer.decode(s)
-        return prompter.get_response(output)
+        re=prompter.get_response(output)
+        # remove the last ']' or ‘#’
+        last_bracket_index = re.find('#')
+        if last_bracket_index != -1:
+            re = re[:last_bracket_index ]
+            
+        last_bracket_index = re.rfind(']')
+        if last_bracket_index != -1:
+            re = re[:last_bracket_index + 1]
+        
+        return re
+    if CLI:
+        while True:
 
-    gr.Interface(
-        fn=evaluate,
-        inputs=[
-            gr.components.Textbox(
-                lines=2,
-                label="Instruction",
-                placeholder="Please give me some details about this molecule.",
-            ),
-            gr.components.Textbox(
-                lines=2, 
-                label="Input", 
-                placeholder="[C][Branch1][C][Cl][Branch1][C][Cl][Cl]",
-            ),
-            gr.components.Slider(
-                minimum=0, maximum=1, value=0.1, label="Temperature"
-            ),
-            gr.components.Slider(
-                minimum=0, maximum=1, value=0.75, label="Top p"
-            ),
-            gr.components.Slider(
-                minimum=0, maximum=100, step=1, value=40, label="Top k"
-            ),
-            gr.components.Slider(
-                minimum=1, maximum=4, step=1, value=4, label="Beams"
-            ),
-            gr.components.Slider(
-                minimum=1, maximum=2000, step=1, value=80, label="Max tokens"
-            ),
-        ],
-        outputs=[
-            gr.inputs.Textbox(
-                lines=5,
-                label="Output",
-            )
-        ],
-        title="🧪 Mol-Instructions",
-        description="It is a 7B-parameter LLaMA model finetuned to follow instructions. It is trained on the Mol-Instructions dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/zjunlp/Mol-Instructions).",  # noqa: E501
-    ).launch(server_name="0.0.0.0", share=share_gradio)
-    # Old testing code follows.
+            # get instruction from user
+            instruction = input("Enter instruction: ")
+            
+            # get user input
+            input_text = input("Enter input text: ")
 
+            # evaluate the instruction with input_text
+            if protein == False:
+                output = evaluate(instruction, input=input_text, temperature=0.1, top_p=0.75, top_k=40, num_beams=4, repetition_penalty=1, max_new_tokens=128)
+            else:
+                output = evaluate(instruction, input=input_text, temperature=0.9, top_p=0.9, top_k=8, num_beams=1, repetition_penalty=1.2, max_new_tokens=1024)
+
+            # print the output
+            print(output)
+
+            # ask if the user wants to continue or exit
+            choice = input("Do you want to continue? (y/n): ")
+            if choice.lower() != "y":
+                break
+
+        
+    else:
+        mytheme = gr.themes.Default().set(
+        slider_color="#0000FF",
+        )
+        gr.Interface(
+            theme=mytheme,
+            title="🧪 Mol-Instruction",
+            description="It is a 7B-parameter LLaMA model finetuned to follow instructions. It is trained on the Mol-Instructions dataset and makes use of the Huggingface LLaMA implementation. For more information, please visit [the project's website](https://github.com/zjunlp/Mol-Instructions).",  # noqa: E501
+            fn=evaluate,
+            inputs=[
+                gr.components.Textbox(
+                    lines=2,
+                    label="Instruction",
+                    placeholder="Please give me some details about this molecule.",
+                ),
+                gr.components.Textbox(
+                    lines=2, 
+                    label="Input",
+                    placeholder="[C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][=Branch1][C][=O][O][C@H1][Branch2][Ring1][=Branch1][C][O][C][=Branch1][C][=O][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][C][O][P][=Branch1][C][=O][Branch1][C][O][O][C][C@@H1][Branch1][=Branch1][C][=Branch1][C][=O][O][N]",
+                ),
+                gr.components.Slider(
+                    minimum=0, maximum=1, value=0.1, label="Temperature"
+                ),
+                gr.components.Slider(
+                    minimum=0, maximum=1, value=0.75, label="Top p"
+                ),
+                gr.components.Slider(
+                    minimum=0, maximum=100, step=1, value=40, label="Top k"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=4, step=1, value=4, label="Beams"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=5, value=1, label="Repetition penalty"
+                ),
+                gr.components.Slider(
+                    minimum=1, maximum=2000, step=1, value=128, label="Max tokens"
+                ),
+            ],
+            outputs=[
+                gr.inputs.Textbox(
+                    lines=5,
+                    label="Output",
+                )
+            ],
+        ).launch(server_name="0.0.0.0", share=share_gradio)
 
 if __name__ == "__main__":
     fire.Fire(main)
