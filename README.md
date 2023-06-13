@@ -362,7 +362,7 @@ The current state of the model, obtained via instruction tuning, is a preliminar
 <h2 id="5">5. About</h2>
 
 <h3 id="5-1"> 📚 5.1 References</h3>
-If you use our repository, please cite the following related papers:
+If you use our repository, please cite the following related paper:
 
 ```
 @article{molinst,
