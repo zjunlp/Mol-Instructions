@@ -25,6 +25,7 @@ Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-
 We provide a example to perform generation. If you want to use our finetuned model on the protein-oriented instructions, you could set `--protein` True and supply `--base_model` with the path of your restored LLaMA model weights (see the following section) while no need to set `--lora_weights`.
 
 ```shell
+# run LoRA model (Molecule & Text)
 python generate.py \
   --CLI True \
   --protein False\
@@ -41,4 +42,14 @@ python weight_diff.py recover \
   --path_raw {LLAMA_WEIGHT} \
   --path_diff {DIFF_WEIGHT} \
   --path_tuned {RECOVER_WEIGHT}
+```
+
+You then could execute the following command for generation with fine-tuned LLaMA model.
+
+```shell
+# run fine-tuned model (Protein)
+python generate.py \
+  --CLI True \
+  --protein True \
+  --base_model $RECOVER_WEIGHT \
 ```
