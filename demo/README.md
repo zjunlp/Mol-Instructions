@@ -20,26 +20,25 @@ Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-
 
 ## Inference
 
-### Recovering Weights
+### Generation
 
-You can conveniently recover the model weights we trained through the following command. You could replace `{LLAMA_WEIGHT}` with the directory of LLaMA model weights you own and replace `{DIFF_WEIGHT}` with the directory of diff weights we provided and replace `{RECOVER_WEIGHT}` with the path you want to save the recovering weights. 
+We provide a example to perform generation. If you want to use our finetuned model on the protein-oriented instructions, you could set `--protein` True and supply `--base_model` with the path of your restored LLaMA model weights (see the following section) while no need to set `--lora_weights`.
+
+```shell
+python generate.py \
+  --CLI True \
+  --protein False\
+  --load_8bit \
+  --base_model $BASE_MODEL_PATH \
+  --lora_weights $FINETUNED_MODEL_PATH \
+```
+
+### How to recover Weights
+
+For full fine-tuned LLaMA model, you can conveniently recover the model weights we trained through the following command. You could replace `{LLAMA_WEIGHT}` with the directory of LLaMA model weights you own and replace `{DIFF_WEIGHT}` with the path of  [diff weights](https://huggingface.co/zjunlp/llama-molinst-protein-7b) we provided and replace `{RECOVER_WEIGHT}` with the path you want to save the recovered weights. If the directory of recovered weights lacks required files (e.g., tokenizer configuration files), you can copy from `{DIFF_WEIGHT}`.
 ```shell
 python weight_diff.py recover \
   --path_raw {LLAMA_WEIGHT} \
   --path_diff {DIFF_WEIGHT} \
   --path_tuned {RECOVER_WEIGHT}
-```
-
-### Generation
-
-We provide a example to perform generation.
-
-```Shell
-python src/generate.py \
-    --model_name_or_path {MODEL_NAME} \
-    --model_type {MODEL_TYPE} \
-    --prompt_template_dir {TEMPLATE_PATH} \
-    --prompt_template_name {TEMPLATE_NAME} \
-    --top_k 8 \
-    --repetition_penalty 1.2
 ```
