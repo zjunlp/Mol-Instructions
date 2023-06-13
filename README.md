@@ -272,9 +272,9 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 
 We release the model weights on Hugging Face at:
 
-- 🔬 *Molecule-oriented instructions:* [zjunlp/llama-molinst-molecule-7b](https://huggingface.co/zjunlp/llama-molinst-molecule-7b)
-- 🧬 *Protein-oriented instructions:* [zjunlp/llama-molinst-protein-7b](https://huggingface.co/zjunlp/llama-molinst-protein-7b)
-- 🥼 *Biomolecular text instructions:* [zjunlp/llama-molinst-biotext-7b](https://huggingface.co/zjunlp/llama-molinst-biotext-7b)
+- 🔬 *Molecule-oriented:* [zjunlp/llama-molinst-molecule-7b](https://huggingface.co/zjunlp/llama-molinst-molecule-7b)
+- 🧬 *Protein-oriented:* [zjunlp/llama-molinst-protein-7b](https://huggingface.co/zjunlp/llama-molinst-protein-7b)
+- 🥼 *Biomolecular text:* [zjunlp/llama-molinst-biotext-7b](https://huggingface.co/zjunlp/llama-molinst-biotext-7b)
 
 <h3 id="3-2"> 📝 3.2 Model Usage Guide</h3>
 
