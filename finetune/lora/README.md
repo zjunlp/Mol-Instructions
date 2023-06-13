@@ -15,5 +15,5 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 accelerate launch finetune.py --data_path $
 ```
 If you want to modify the training hyperparameters in the command line, you can simply add the corresponding parameters after the command.
 
-Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-hf/tree/main) to obtain the pre-training weights of LLaMA-7B, refine the `base_model' to point towards the location where the model weights are saved.
+Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-hf/tree/main) to obtain the pre-training weights of LLaMA-7B, refine the `base_model` to point towards the location where the model weights are saved.
 
