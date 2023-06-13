@@ -55,11 +55,11 @@ def train(
         wandb_log_model: str = "",  # options: false | true
         resume_from_checkpoint: str = None,  # either training checkpoint or final adapter
         prompt_template_name: str = "alpaca",  # The prompt template to use, will default to alpaca.
-        warmup_steps=10,
-        logging_steps=1,
-        save_steps=10,
-        save_total_limit=5,
-        eval_steps=10,
+        warmup_steps=100,
+        logging_steps=10,
+        save_steps=200,
+        save_total_limit=3,
+        eval_steps=200,
 ):
     if int(os.environ.get("LOCAL_RANK", 0)) == 0:
         print(
