@@ -301,9 +301,9 @@ Step 2, specify the parameters in the [generate.sh](./demo/generate.sh) file.
     --lora_weights $FINETUNED_MODEL_PATH \
 ```
 
-For models fine-tuned on molecule-oriented and biomolecular text instructions, please set $FINETUNED_MODEL_PATH to 'zjunlp/llama-molinst-molecule-7b' or 'zjunlp/llama-molinst-biotext-7b'.
+For models fine-tuned on *molecule-oriented* and *biomolecular text* instructions, please set `$FINETUNED_MODEL_PATH` to `'zjunlp/llama-molinst-molecule-7b'` or `'zjunlp/llama-molinst-biotext-7b'`.
 
-For the model fine-tuned on protein-oriented instructions, you need to perform additional steps as described in [this folder](https://github.com/zjunlp/Mol-Instructions/tree/main/demo).
+For the model fine-tuned on *protein-oriented* instructions, you need to perform additional steps as described in [this folder](https://github.com/zjunlp/Mol-Instructions/tree/main/demo).
 
 Step 3, run the [generate.sh](./demo/generate.sh) file in the repository： 
 
