@@ -291,7 +291,7 @@ Step 2, specify the parameters in the [generate.sh](./demo/generate.sh) file.
 
 ```shell
 >> CUDA_VISIBLE_DEVICES=0 python generate.py \
-    --interactive False\
+    --CLI False\
     --protein False\
     --load_8bit \
     --base_model $BASE_MODEL_PATH \
