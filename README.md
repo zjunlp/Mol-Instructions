@@ -298,7 +298,7 @@ Step 2, specify the parameters in the [generate.sh](./demo/generate.sh) file.
     --share_gradio True\
     --lora_weights $FINETUNED_MODEL_PATH \
 ```
-For example, you can set `$FINETUNED_MODEL_PATH` to `zjunlp/llama-molinst-molecule-7b`. 
+For example, you can set `$FINETUNED_MODEL_PATH` to `'zjunlp/llama-molinst-molecule-7b'`. 
 
 Step 3, run the [generate.sh](./demo/generate.sh) file in the repository： 
 
