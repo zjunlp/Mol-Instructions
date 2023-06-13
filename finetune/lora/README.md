@@ -11,9 +11,9 @@ pip install -r requirements.txt
 ## 🚀 Run
 Our code is based on [alpaca-lora](https://github.com/tloen/alpaca-lora) with modifications made only to the training hyperparameters. We trained the model on a single node with 8 V100(32GB) GPUs. All the training hyperparameters are already reflected in the training code. Please modify the training parameters, including `warmup_steps`, `micro_batch_size`, etc., according to your hardware setup. To start the training, use the following command:
 ```shell
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 accelerate launch finetune.py --data_path /your/data/path --base_model /your/path/to/llama
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 accelerate launch finetune.py --data_path $DATA_PATH --base_model $BASE_MODEL_PATH
 ```
 If you want to modify the training hyperparameters in the command line, you can simply add the corresponding parameters after the command.
 
-Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-hf/tree/main) to obtain the pre-training weights of LLaMA-7B, refine the `data_path' to point towards the location where the model weights are saved.
+Please download [llama-7b-hf](https://huggingface.co/decapoda-research/llama-7b-hf/tree/main) to obtain the pre-training weights of LLaMA-7B, refine the `base_model' to point towards the location where the model weights are saved.
 
