@@ -111,11 +111,11 @@ We release the dataset on Hugging Face at [zjunlp/Mol-Instructions](https://hugg
 <details>
   <summary><b>Reagent prediction</b></summary>
   
-- *From the provided chemical reaction, propose some possible reagents that could have been used:*
-  [C][C][=C][C][Branch1][=Branch2][S][Branch1][C][C][=Branch1][C][=O][=O][=C][C][Branch1][C][C][=C][Ring1][O][C][=Branch1][C][=O][C][Br].[N][C][Branch1][C][N][=S]>>[C][C][=C][C][Branch1][=Branch2][S][Branch1][C][C][=Branch1][C][=O][=O][=C][C][Branch1][C][C][=C][Ring1][O][C][=C][S][C][Branch1][C][N][=N][Ring1][=Branch1]
+- *Please provide possible reagents based on the following chemical reaction:*
+  [C][C][=C][C][=C][Branch1][C][N][C][=N][Ring1][#Branch1].[O][=C][Branch1][C][Cl][C][Cl]>>[C][C][=C][C][=C][Branch1][Branch2][N][C][=Branch1][C][=O][C][Cl][C][=N][Ring1][O]
 
   ```
-  [C][C][O]
+  [C][C][C][O][C][Ring1][Branch1].[C][C][N][Branch1][Ring1][C][C][C][C].[O]
   ```
 </details>
 
