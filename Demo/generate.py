@@ -22,7 +22,7 @@ except:  # noqa: E722
     pass
 
 def main(
-    interactive: bool = False,
+    CLI: bool = False,
     protein: bool = False,
     load_8bit: bool = False,
     base_model: str = "",
@@ -141,7 +141,7 @@ def main(
             re = re[:last_bracket_index + 1]
         
         return re
-    if interactive:
+    if CLI:
         while True:
 
             # get instruction from user
