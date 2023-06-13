@@ -349,7 +349,7 @@ We offer two methods: the first one is command-line interaction, and the second 
 
 <h3 id="4-1"> 🚨 4.1. Usage and License</h3>
 
-Please note that all data and model weights of **Mol-Instructions** is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY NC 4.0, which permits solely non-commercial usage. 
+Please note that all data and model weights of **Mol-Instructions** is exclusively licensed for research purposes. The accompanying dataset is licensed under CC BY 4.0, which permits solely non-commercial usage. 
 
 We emphatically urge all users to adhere to the highest ethical standards when using our dataset, including maintaining fairness, transparency, and responsibility in their research. Any usage of the dataset that may lead to harm or pose a detriment to society is strictly **forbidden**.
 
