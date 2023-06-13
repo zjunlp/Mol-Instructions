@@ -268,6 +268,8 @@ MANTKYIFITGGVVSSLGKGIAAASIGALLESRGLSVSLIKVDPYINVDPGTMSPFQHGEVFVTEDGTETDLDLGHYERF
 
 <h2 id="3">3. Demo</h2>
 
+<div align=center><img src="fig/logo.png" width="20%" height="20%" /></div>
+
 <h3 id="3-1"> 🤗 3.1 Model Weight Release</h3>
 
 We release the model weights on Hugging Face at:
