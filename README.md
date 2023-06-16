@@ -1,6 +1,10 @@
 <h1 align="center">  🧪 Mol-Instructions  </h1>
 <h3 align="center"> An open, large-scale biomolecular instruction dataset for large language models. </h3>
 
+<p align="center">
+  📃 <a href="https://arxiv.org/abs/2306.08018" target="_blank">Paper</a> • ⏬ <a href="https://huggingface.co/datasets/zjunlp/Mol-Instructions" target="_blank">Download</a><br>
+</p>
+
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-red.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/DATA_LICENSE)
 
@@ -374,7 +378,7 @@ If you use our repository, please cite the following related paper:
 @article{molinst,
   author = {Yin Fang, Xiaozhuan Liang, Ningyu Zhang, Kangwei Liu, Rui Huang, Zhuo Chen, Xiaohui Fan and Huajun Chen},
   title = {Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models},
-  journal = {arXiv preprint}
+  journal = {arXiv preprint arXiv:2306.08018}
   year = {2023},
 }
 ```
