@@ -12,6 +12,7 @@
 <div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
 
 ## 🆕 News
+- \[**June 2023**\] We've open-sourced [KnowLM](https://github.com/zjunlp/KnowLM), a knowledgeable large language model framework! It comes with pre-training and instruction fine-tuning code (supports multi-machine multi-GPU setup). 
 - \[**June 2023**\] Release the first version (v1) of datasets and model weights.
 
 
