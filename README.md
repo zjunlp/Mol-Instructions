@@ -376,11 +376,11 @@ The current state of the model, obtained via instruction tuning, is a preliminar
 If you use our repository, please cite the following related paper:
 
 ```
-@article{molinst,
-  author = {Yin Fang, Xiaozhuan Liang, Ningyu Zhang, Kangwei Liu, Rui Huang, Zhuo Chen, Xiaohui Fan and Huajun Chen},
-  title = {Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models},
-  journal = {arXiv preprint arXiv:2306.08018}
-  year = {2023},
+@article{fang2023mol,
+  title={Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models},
+  author={Fang, Yin and Liang, Xiaozhuan and Zhang, Ningyu and Liu, Kangwei and Huang, Rui and Chen, Zhuo and Fan, Xiaohui and Chen, Huajun},
+  journal={arXiv preprint arXiv:2306.08018},
+  year={2023}
 }
 ```
             
