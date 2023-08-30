@@ -2,7 +2,7 @@
 <h3 align="center"> An open, large-scale biomolecular instruction dataset for large language models. </h3>
 
 <p align="center">
-  📃 <a href="https://arxiv.org/abs/2306.08018" target="_blank">Paper</a> • ⏬ <a href="https://huggingface.co/datasets/zjunlp/Mol-Instructions" target="_blank">Download</a><br>
+  📃 <a href="https://arxiv.org/abs/2306.08018" target="_blank">Paper</a> • ⏬ <a href="https://huggingface.co/datasets/zjunlp/Mol-Instructions" target="_blank">Dataset</a><br>
 </p>
 
 [![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/LICENSE)
