@@ -29,7 +29,8 @@
 - [Demo](#3)
   - [Model Weight Release](#3-1)
   - [Model Usage Guide](#3-2)
-  - [FAQ](#3-3)
+  - [Quantitative Experiments](#3-3)
+  - [FAQ](#3-4)
 - [Notices](#4)
   - [Usage and License](#4-1) 
   - [Limitations](#4-2)  
@@ -335,7 +336,12 @@ We offer two methods: the first one is command-line interaction, and the second 
   <img alt="Demo" src=fig/gradio_interface_gif.gif style="width: 700px; height: 340px;"/>
 </p>
 
-<h3 id="3-3"> 💡 3.3 FAQ</h3>
+<h3 id="3-3"> 💡 3.3 Quantitative Experiments</h3>
+To investigate whether Mol-Instructions can enhance LLM’s understanding of biomolecules, we conduct the following quantitative experiments. For detailed experimental settings and analysis, please refer to the [paper](https://arxiv.org/pdf/2306.08018.pdf).
+
+
+
+<h3 id="3-4"> 💡 3.4 FAQ</h3>
 
 - *Question:* What action should be taken if the model encounters `<unk>` and subsequently repeats the input during decoding?
   
