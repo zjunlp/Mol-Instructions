@@ -337,9 +337,15 @@ We offer two methods: the first one is command-line interaction, and the second 
 </p>
 
 <h3 id="3-3"> 💡 3.3 Quantitative Experiments</h3>
-To investigate whether Mol-Instructions can enhance LLM’s understanding of biomolecules, we conduct the following quantitative experiments. For detailed experimental settings and analysis, please refer to the [paper](https://arxiv.org/pdf/2306.08018.pdf).
+To investigate whether Mol-Instructions can enhance LLM’s understanding of biomolecules, we conduct the following quantitative experiments. For detailed experimental settings and analysis, please refer to our [paper](https://arxiv.org/pdf/2306.08018.pdf).
+
+- 🔬 *Molecule-oriented:* <div align=center><img src="fig/molecule.png" width="70%" height="100%" /></div>
 
 
+- 🧬 *Protein-oriented:* <div align=center><img src="fig/protein.png" width="61%" height="100%" /></div>
+
+
+- 🥼 *Biomolecular text:* <div align=center><img src="fig/biotext.png" width="72%" height="100%" /></div>
 
 <h3 id="3-4"> 💡 3.4 FAQ</h3>
 
