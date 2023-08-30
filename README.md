@@ -53,7 +53,7 @@
 
 <h3 id="1-2"> 🛠️ 1.2 Data Construction</h3>
 
-<div align=center><img src="fig/framework.png" width="100%" height="100%" /></div>
+<div align=center><img src="fig/construction.png" width="100%" height="100%" /></div>
 
 - 🤖️ *Human-AI Collaboration Task Description Creation*: In real-world applications, task instructions must be able to accommodate the varied and dynamic nature of human needs and queries. We emulate this diversity by starting with a clear, human-crafted description for each task, which is then used as an input to GPT-3.5-turbo.
 - 📖 *Information Derivation from Existing Data*: Biomolecular data often requires specialist laboratory experiments and expert analysis, making authoritative and recognized biochemistry databases an ideal source of our data. With suitable processing, these resources enable us to extract the required instruction data.
