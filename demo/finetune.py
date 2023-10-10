@@ -203,16 +203,9 @@ def train(
     model.print_trainable_parameters()  # Be more transparent about the % of trainable params.
 
     if data_path.endswith(".json") or data_path.endswith(".jsonl"):
-        data = load_dataset(data_path)
-        print(f"data includes: {data_path}")
+        data = load_dataset("json", data_files=data_path)
     else:
-        """is folder"""
-        data_paths = []
-        data_path = data_path if data_path[-1] == "/" else data_path+"/"
-        for i in os.listdir(data_path):
-            data_paths.append(os.path.join(data_path, i))
-        print(f"data includes: {data_paths}")
-        data = load_dataset("json", data_files=data_paths)
+        data = load_dataset(data_path)
 
     if val_set_size > 0:
         train_val = data["train"].train_test_split(
