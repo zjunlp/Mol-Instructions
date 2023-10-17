@@ -21,7 +21,10 @@ python text_translation_metrics.py --input_file $PREPROCESSED_DATA_FROM_STEP2$
 
 
 
+## 🧬 Protein
 
+
+## 🥼 Biotext
 
 
 
