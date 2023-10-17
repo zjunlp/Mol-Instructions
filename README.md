@@ -343,13 +343,17 @@ We offer two methods: the first one is command-line interaction, and the second 
 To investigate whether Mol-Instructions can enhance LLM’s understanding of biomolecules, we conduct the following quantitative experiments. 
 For detailed experimental settings and analysis, please refer to our [paper](https://arxiv.org/pdf/2306.08018.pdf).
 
-- 🔬 *Molecule-oriented:* <div align=center><img src="fig/molecule.png" width="70%" height="100%" /></div>
+- 🧪 Molecular generation tasks
+<img width="818" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/dee83855-6d63-41c8-abf5-8ad75a192a04">
 
 
-- 🧬 *Protein-oriented:* <div align=center><img src="fig/protein.png" width="61%" height="100%" /></div>
+- 🔍 Molecular property prediction task & Molecule and protein understanding tasks
+<img width="1212" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/1b6c7cb4-0f79-49bf-b4f1-a794607d2796">
+
+- 🧫 Bioinformatic NLP tasks
+<img width="1208" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/861dda55-5ec7-4e1a-90e7-6661fc7d2fc8">
 
 
-- 🥼 *Biomolecular text:* <div align=center><img src="fig/biotext.png" width="72%" height="100%" /></div>
 
 <h3 id="3-4"> 💡 3.4 FAQ</h3>
 
