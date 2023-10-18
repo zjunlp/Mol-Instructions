@@ -23,6 +23,10 @@ python text_translation_metrics.py --input_file $PREPROCESSED_DATA_FROM_STEP2$
 
 ## 🧬 Protein
 
+🚀 **Step 1:** Run the `protein/generate.py` and set `{task}` to perform the generation of corresponding task, and the result will be saved to `{task}_result.json`.
+
+🔨 **Step 2:** Execute `protein/eval.py` to evaluate the performance of generations.
+
 
 ## 🥼 Biotext
 🚀 **Step 1:** Start by generating results based on the test set, similar to the `generate_example.py` function. Make sure to save these results in `output_dir`.
