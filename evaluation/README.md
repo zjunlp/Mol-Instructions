@@ -25,7 +25,7 @@ python text_translation_metrics.py --input_file $PREPROCESSED_DATA_FROM_STEP2$
 
 
 ## 🥼 Biotext
-🚀 **Step 1:** Start by generating results based on the test set, similar to the `generate_many.py` function. Make sure to save these results in `output_dir`.
+🚀 **Step 1:** Start by generating results based on the test set, similar to the `generate_example.py` function. Make sure to save these results in `output_dir`.
 
 🔨 **Step 2:** Based on the metrics you need to evaluate, select the corresponding file in the `biotext` folder and modify the path of `output_dir`.
 
