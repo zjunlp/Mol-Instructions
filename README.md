@@ -12,6 +12,7 @@
 <div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
 
 ## 🆕 News
+- \[**October 2023**\] We've updated the train/test splits on [Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions), along with the [evaluation code](https://github.com/zjunlp/Mol-Instructions/tree/main/evaluation).
 - \[**September 2023**\] We've released the [molecule](https://huggingface.co/zjunlp/llama2-molinst-molecule-7b) and [biotext](https://huggingface.co/zjunlp/llama2-molinst-biotext-7b) model weights on Hugging Face, built upon LLaMa-7b-chat.
 - \[**August 2023**\] We've added quantitative experiments on Mol-Instructions.
 - \[**June 2023**\] We've open-sourced [KnowLM](https://github.com/zjunlp/KnowLM), a knowledgeable large language model framework! It comes with pre-training and instruction fine-tuning code (supports multi-machine multi-GPU setup). 
