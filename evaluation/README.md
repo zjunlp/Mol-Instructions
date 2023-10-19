@@ -4,7 +4,7 @@
 
 🚀 **Step 1:** Start by generating results based on the test set, similar to the `generate_example.py` function. Make sure to save these results in `output_dir`.
 
-(✨ Please be aware: the `generate_example.py` code is specifically designed for the model tuned from [Llama2-7b-chat](https://huggingface.co/meta-llama/Llama-2-7b-chat), with LoRA weights available at [https://huggingface.co/zjunlp/llama2-molinst-molecule-7b].)
+(✨ Please be aware: the `generate_example.py` code is specifically designed for the model tuned from [Llama2-7b-chat](https://huggingface.co/meta-llama/Llama-2-7b-chat), with LoRA weights available at [llama2-molinst-molecule-7b](https://huggingface.co/zjunlp/llama2-molinst-molecule-7b).)
 
 🔨 **Step 2:** Next, run the `evaluate.py` script to perform the preprocessing steps. Here, the `input_path` parameter should be set to `output_dir` from Step 1, `output_path` is where you wish to store the preprocessed data, and `task` denotes the specific molecular task you're running:
 - For `task == 'property_pred'`, you'll execute molecular property prediction tasks.
