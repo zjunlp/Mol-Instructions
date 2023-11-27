@@ -115,20 +115,20 @@ def evaluate(
 
 
 def main(
-    task: str = None,
-    protein: bool = False,
+    task: str = 'test',
+    protein: bool = True,
     load_8bit: bool = False,
-    base_model: str = "/data/qiaoshuofei/PLMs/llama-2-converted/7b-chat",
+    base_model: str = "data/model_data/llama-molinst-protein-7b-recover",
     lora_weights: str = "data/model_data/alpaca_lora",
     prompt_template: str = "data/templates",
 ):
     set_seed(2023)
 
-    prompter = Prompter(prompt_template, template_name="llama_chat")
-    if protein == False:
-        tokenizer = LlamaTokenizer.from_pretrained(base_model)
-    else:
+    prompter = Prompter(prompt_template, template_name="alpaca")
+    if protein:
         tokenizer = LlamaTokenizer.from_pretrained(base_model, bos_token='<s>', eos_token='</s>', add_bos_token=True, add_eos_token=False)
+    else:
+        tokenizer = LlamaTokenizer.from_pretrained(base_model)
 
     model = LlamaForCausalLM.from_pretrained(
         base_model,
@@ -136,21 +136,17 @@ def main(
         device_map={"": 2}
     )
 
-    # model = PeftModel.from_pretrained(
-    #     model,
-    #     lora_weights,
-    # )
     model.eval()
 
-    # model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
-    # model.config.bos_token_id = 1
-    # model.config.eos_token_id = 2
+    model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
+    model.config.bos_token_id = 1
+    model.config.eos_token_id = 2
 
     
     with open(f'data/eval_data/{task}.json', 'r') as f:
         examples = json.load(f)
 
-    # examples = examples[:1000]
+    examples = examples[:1000]
     records = []
 
     for example in tqdm(examples):
@@ -169,7 +165,6 @@ def main(
                 'target': target
             }
         )
-        # print(response)
 
     with open(f'output/{task}_result.json', 'w') as f:
         json.dump(records, f, ensure_ascii=True, indent=4)
