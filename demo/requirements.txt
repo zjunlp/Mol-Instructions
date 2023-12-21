@@ -4,5 +4,5 @@ datasets
 sentencepiece
 fire
 accelerate==0.17.1
-transformers==4.28.1
+transformers==4.36.0
 peft==0.2.0
