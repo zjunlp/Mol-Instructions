@@ -12,6 +12,7 @@
 <div align=center><img src="fig/abs.png" width="100%" height="100%" /></div>
 
 ## 🆕 News
+- \[**Jan 2024**\] Accepted by ICLR 2024. 
 - \[**October 2023**\] We've updated the train/test splits on [Mol-Instructions](https://huggingface.co/datasets/zjunlp/Mol-Instructions), along with the [evaluation code](https://github.com/zjunlp/Mol-Instructions/tree/main/evaluation).
 - \[**September 2023**\] We've released the [molecule](https://huggingface.co/zjunlp/llama2-molinst-molecule-7b) and [biotext](https://huggingface.co/zjunlp/llama2-molinst-biotext-7b) model weights on Hugging Face, built upon LLaMa-7b-chat.
 - \[**August 2023**\] We've added quantitative experiments on Mol-Instructions.
