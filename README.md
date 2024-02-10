@@ -5,7 +5,7 @@
   📃 <a href="https://arxiv.org/abs/2306.08018" target="_blank">Paper</a> • ⏬ <a href="https://huggingface.co/datasets/zjunlp/Mol-Instructions" target="_blank">Dataset</a><br>
 </p>
 
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/LICENSE)
+[![Code License](https://img.shields.io/badge/Code%20License-MIT-green.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/LICENSE)
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-red.svg)](https://github.com/zjunlp/Mol-Instructions/blob/main/DATA_LICENSE)
 
 
