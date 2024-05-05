@@ -13,6 +13,7 @@
 
 ## 🆕 News
 
+- \[**May 2024**\] We've updated the [results]((#3-3)) and models ([molecule](https://huggingface.co/zjunlp/llama3-instruct-molinst-molecule-8b) and [biotext](https://huggingface.co/zjunlp/llama3-instruct-molinst-biotext-8b)) of instruction-tuning on LLaMA3. 
 - \[**February 2024**\] We've released [ChatCell](https://huggingface.co/papers/2402.08303), a new paradigm that leverages natural language to make single-cell analysis more accessible and intuitive. Please visit our [homepage](https://www.zjukg.org/project/ChatCell) and [Github page](https://github.com/zjunlp/ChatCell) for more information.
 - \[**January 2024**\] Our paper [Domain-Agnostic Molecular Generation with Chemical Feedback](https://github.com/zjunlp/MolGen) is accepted by ICLR 2024.
 - \[**January 2024**\] Our paper [Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models](https://github.com/zjunlp/Mol-Instructions) is accepted by ICLR 2024.
@@ -348,16 +349,139 @@ We offer two methods: the first one is command-line interaction, and the second 
 To investigate whether Mol-Instructions can enhance LLM’s understanding of biomolecules, we conduct the following quantitative experiments. 
 For detailed experimental settings and analysis, please refer to our [paper](https://arxiv.org/pdf/2306.08018.pdf). Please refer to the [evaluation code](https://github.com/zjunlp/Mol-Instructions/tree/main/evaluation) to conduct the same experiments.
 
-- 🧪 Molecular generation tasks
-<img width="818" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/dee83855-6d63-41c8-abf5-8ad75a192a04">
+## 🧪 Molecular generation tasks
+
+- Description-guided Molecule Design
+
+| Metric       | Exact↑ | BLEU↑ | Levenshtein↓ | RDK FTS↑ | MACC FTS↑ | Morgan FTS↑ | Validity↑ |
+|--------------|--------|-------|--------------|----------|-----------|-------------|-----------|
+| Alpaca       | 0.000  | 0.004 | 51.088       | 0.006    | 0.029      | 0.000       | 0.002     |
+| Baize        | 0.000  | 0.006 | 53.796       | 0.000    | 0.000      | 0.000       | 0.002     |
+| ChatGLM      | 0.000  | 0.004 | 53.157       | 0.005    | 0.000      | 0.000       | 0.005     |
+| LLaMa        | 0.000  | 0.003 | 59.864       | 0.005    | 0.000      | 0.000       | 0.003     |
+| Vicuna       | 0.000  | 0.006 | 60.356       | 0.006    | 0.001      | 0.000       | 0.001     |
+| Galactica    | 0.000  | 0.192 | 44.152       | 0.135    | 0.238      | 0.088       | 0.992     |
+| Text+Chem T5 | 0.097  | 0.508 | 41.819       | 0.352    | 0.474      | 0.353       | 0.721     |
+| MolT5        | 0.112  | 0.546 | 38.276       | 0.400    | 0.538      | 0.295       | 0.773     |
+| Ours (LLaMA2-chat) | 0.002  | 0.345 | 41.367       | 0.231    | 0.412      | 0.147       | 1.000     |
+| Ours (LLaMA3-Instruct)  | 0.025  | 0.521 |   38.742     |  0.358   |    0.520   |   0.221     |  1.000  |
+
+- Forward Reaction Prediction
+
+| Metric       | Exact↑ | BLEU↑ | Levenshtein↓ | RDK FTS↑ | MACC FTS↑ | Morgan FTS↑ | Validity↑ |
+|--------------|--------|-------|--------------|----------|-----------|-------------|-----------|
+| Alpaca       | 0.000  | 0.065 | 41.989       | 0.004    | 0.024      | 0.008       | 0.138     |
+| Baize        | 0.000  | 0.044 | 41.500       | 0.004    | 0.025      | 0.009       | 0.097     |
+| ChatGLM      | 0.000  | 0.183 | 40.008       | 0.050    | 0.100      | 0.044       | 0.108     |
+| LLaMa        | 0.000  | 0.020 | 42.002       | 0.001    | 0.002      | 0.001       | 0.039     |
+| Vicuna       | 0.000  | 0.057 | 41.690       | 0.007    | 0.016      | 0.006       | 0.059     |
+| Galactica    | 0.000  | 0.468 | 35.021       | 0.156    | 0.257      | 0.097       | 0.946     |
+| Text+Chem T5 | 0.239  | 0.782 | 20.413       | 0.705    | 0.789      | 0.652       | 0.762     |
+| Ours (LLaMA2-chat)  | 0.045  | 0.654 | 27.262       | 0.313    | 0.509      | 0.262       | 1.000     |
+| Ours (LLaMA3-Instruct)  |  0.503 | 0.883 |   13.410    |  0.756  |  0.863    |   0.708    | 1.000 |
+
+- Retrosynthesis
+
+| Metric       | Exact↑ | BLEU↑ | Levenshtein↓ | RDK FTS↑ | MACC FTS↑ | Morgan FTS↑ | Validity↑ |
+|--------------|--------|-------|--------------|----------|-----------|-------------|-----------|
+| Alpaca       | 0.000  | 0.063 | 46.915       | 0.005    | 0.023      | 0.007       | 0.160     |
+| Baize        | 0.000  | 0.095 | 44.714       | 0.025    | 0.050      | 0.023       | 0.112     |
+| ChatGLM      | 0.000  | 0.117 | 48.365       | 0.056    | 0.075      | 0.043       | 0.046     |
+| LLama        | 0.000  | 0.036 | 46.844       | 0.018    | 0.029      | 0.017       | 0.010     |
+| Vicuna       | 0.000  | 0.057 | 46.877       | 0.025    | 0.030      | 0.021       | 0.017     |
+| Galactica    | 0.000  | 0.452 | 34.940       | 0.167    | 0.274      | 0.134       | 0.984     |
+| Text+Chem T5 | 0.141  | 0.765 | 24.043       | 0.685    | 0.765      | 0.585       | 0.698     |
+| Ours (LLaMA2-chat)        | 0.009  | 0.705 | 31.227       | 0.283    | 0.487      | 0.230       | 1.000     |
+| Ours (LLaMA3-Instruct)  | 0.333  | 0.842 |   17.642    |  0.704  |    0.815  |    0.646   | 1.000 |
+
+- Reagent Prediction
+
+| Metric       | Exact↑ | BLEU↑ | Levenshtein↓ | RDK FTS↑ | MACC FTS↑ | Morgan FTS↑ | Validity↑ |
+|--------------|--------|-------|--------------|----------|-----------|-------------|-----------|
+| Alpaca       | 0.000  | 0.026 | 29.037       | 0.029    | 0.016      | 0.001       | 0.186     |
+| Baize        | 0.000  | 0.051 | 30.628       | 0.022    | 0.018      | 0.004       | 0.099     |
+| ChatGLM      | 0.000  | 0.019 | 29.169       | 0.017    | 0.006      | 0.002       | 0.074     |
+| LLaMa        | 0.000  | 0.003 | 28.040       | 0.037    | 0.001      | 0.001       | 0.001     |
+| Vicuna       | 0.000  | 0.010 | 27.948       | 0.038    | 0.002      | 0.001       | 0.007     |
+| Galactica    | 0.000  | 0.141 | 30.760       | 0.036    | 0.127      | 0.051       | 0.995     |
+| Text+Chem T5 | 0.000  | 0.225 | 49.323       | 0.039    | 0.186      | 0.052       | 0.313     |
+| Ours (LLaMA2-chat)         | 0.044  | 0.224 | 23.167       | 0.237    | 0.364      | 0.213       | 1.000     |
+| Ours (LLaMA3-Instruct)  | 0.101  | 0.648 |   18.326    |   0.412 |0.521      | 0.375      | 1.000 |
 
 
-- 🔍 Molecular property prediction task & Molecule and protein understanding tasks
-<img width="772" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/d654d021-6515-45d1-8b66-04a40c7fd765">
+## 🔍 Molecular property prediction task & Molecule and protein understanding tasks
 
+- Property Prediction
 
-- 🧫 Bioinformatic NLP tasks
-<img width="1208" alt="image" src="https://github.com/zjunlp/Mol-Instructions/assets/61076726/861dda55-5ec7-4e1a-90e7-6661fc7d2fc8">
+| Metric    | MAE↓     |
+|-----------|----------|
+| Alpaca    | 322.109  |
+| Baize     | 261.343  |
+| ChatGLM   | -        |
+| LLaMa     | 5.553    |
+| Vicuna    | 860.051  |
+| Galactica | 0.568    |
+| Ours (LLaMA2-chat)     | 0.013    |
+| Ours (LLaMA3-Instruct)  |  15.059    |
+
+- Molecular Description Generation
+
+| Metric       | BLEU-2↑ | BLEU-4↑ | ROUGE-1↑ | ROUGE-2↑ | ROUGE-L↑ | METEOR↑ |
+|--------------|---------|---------|----------|----------|----------|---------|
+| Alpaca       | 0.068   | 0.014   | 0.178    | 0.041    | 0.136    | 0.107   |
+| Baize        | 0.064   | 0.015   | 0.189    | 0.053    | 0.148    | 0.106   |
+| ChatGLM      | 0.055   | 0.011   | 0.163    | 0.036    | 0.121    | 0.105   |
+| LLaMa        | 0.059   | 0.014   | 0.164    | 0.066    | 0.148    | 0.184   |
+| Vicuna       | 0.052   | 0.011   | 0.151    | 0.055    | 0.130    | 0.168   |
+| Galactica    | 0.024   | 0.008   | 0.074    | 0.015    | 0.063    | 0.065   |
+| Text+Chem T5 | 0.062   | 0.036   | 0.126    | 0.075    | 0.119    | 0.139   |
+| MolT5        | 0.002   | 0.001   | 0.036    | 0.001    | 0.034    | 0.033   |
+| Ours  (LLaMA2-chat)       | 0.217   | 0.143   | 0.337    | 0.196    | 0.291    | 0.254   |
+| Ours (LLaMA3-Instruct)  |  0.419 | 0.361 | 0.719 | 0.646   | 0.709     |    0.637   | 
+
+- Protein Understanding
+
+| Task      | Protein Function | Functional Description | Catalytic Activity | Domain/Motif |
+|-----------|------------------|------------------------|--------------------|--------------|
+| Metric    | ROUGE-L↑         | ROUGE-L↑               | ROUGE-L↑           | ROUGE-L↑     |
+| Alpaca    | 0.20             | 0.10                   | 0.23               | 0.12         |
+| Baize     | 0.20             | 0.15                   | 0.22               | 0.13         |
+| ChatGLM   | 0.15             | 0.14                   | 0.13               | 0.10         |
+| LLaMa     | 0.12             | 0.12                   | 0.13               | 0.09         |
+| Vicuna    | 0.15             | 0.14                   | 0.16               | 0.12         |
+| Galactica | 0.07             | 0.08                   | 0.08               | 0.06         |
+| Ours (LLaMA)     | 0.43             | 0.44                   | 0.52               | 0.46         |
+
+## 🧫 Bioinformatic NLP tasks
+
+- Q&A and Information Extraction
+
+| Task                               | True or False | Multi-choice | Chemical Entity Recognition | Chemical-disease Interaction Extraction | Chemical-protein Interaction Extraction |
+|------------------------------------|---------------|--------------|-----------------------------|-----------------------------------------|-----------------------------------------|
+| Metric                             | Acc↑          | Acc↑         | F1↑                         | F1↑                                     | F1↑                                     |
+| Alpaca                             | 0.330         | 0.286        | 0.213                       | 0.037                                   | 0.002                                   |
+| Baize                              | 0.480         | 0.237        | 0.009                       | 0.004                                   | 0.004                                   |
+| ChatGLM                            | 0.180         | 0.223        | 0.150                       | 0.020                                   | 0.003                                   |
+| LLaMa                              | 0.270         | 0.297        | 0.000                       | 0.050                                   | 0.003                                   |
+| Vicuna                             | 0.120         | 0.290        | 0.024                       | 0.084                                   | 0.013                                   |
+| Galactica                          | 0.420         | 0.312        | 0.166                       | 0.026                                   | 0.001                                   |
+| PMC_LLaMa                          | 0.510         | 0.625        | 0.003                       | 0.000                                   | 0.000                                   |
+| Ours (LLaMA2-chat)                                | 0.550         | 0.649        | 0.753                       | 0.399                                   | 0.224                                   |
+| Ours (LLaMA3-instruct)    |0.600| 0.961|0.694|0.355|0.177
+
+- Open Question
+
+| Task       | BLEU↑  | ROUGE-1↑ | BertScore↑ |
+|------------|--------|----------|------------|
+| Alpaca     | 0.003  | 0.088    | 0.824      |
+| Baize      | 0.005  | 0.100    | 0.811      |
+| ChatGLM    | 0.003  | 0.090    | 0.795      |
+| LLaMa      | 0.003  | 0.100    | 0.814      |
+| Vicuna     | 0.004  | 0.097    | 0.814      |
+| Galactica  | 0.000  | 0.039    | 0.794      |
+| PMC_LLaMA  | 0.007  | 0.788    | 0.625      |
+| Ours (LLaMA2-chat)    | 0.024  | 0.221    | 0.837      |
+| Ours (LLaMA3-instruct)    |0.010|0.198|0.846|
 
 
 
