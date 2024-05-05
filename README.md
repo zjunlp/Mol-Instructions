@@ -13,7 +13,7 @@
 
 ## 🆕 News
 
-- \[**May 2024**\] We've updated the [results]((#3-3)) and models ([molecule](https://huggingface.co/zjunlp/llama3-instruct-molinst-molecule-8b) and [biotext](https://huggingface.co/zjunlp/llama3-instruct-molinst-biotext-8b)) of instruction-tuning on LLaMA3. 
+- \[**May 2024**\] We've updated the [results](#3-3) and models ([molecule](https://huggingface.co/zjunlp/llama3-instruct-molinst-molecule-8b) and [biotext](https://huggingface.co/zjunlp/llama3-instruct-molinst-biotext-8b)) of instruction-tuning on LLaMA3. 
 - \[**February 2024**\] We've released [ChatCell](https://huggingface.co/papers/2402.08303), a new paradigm that leverages natural language to make single-cell analysis more accessible and intuitive. Please visit our [homepage](https://www.zjukg.org/project/ChatCell) and [Github page](https://github.com/zjunlp/ChatCell) for more information.
 - \[**January 2024**\] Our paper [Domain-Agnostic Molecular Generation with Chemical Feedback](https://github.com/zjunlp/MolGen) is accepted by ICLR 2024.
 - \[**January 2024**\] Our paper [Mol-Instructions: A Large-Scale Biomolecular Instruction Dataset for Large Language Models](https://github.com/zjunlp/Mol-Instructions) is accepted by ICLR 2024.
